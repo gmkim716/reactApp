@@ -10,8 +10,8 @@
     font-size: 1.125rem;
     line-height: 1.5;
     color: white;
+    // &: 일반적으로 현재 요소를 가리킴, ::: {선택자}
     &::placeholder {
-      //
       color: #dee2e6;
     }
 
