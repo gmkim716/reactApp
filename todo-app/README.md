@@ -16,6 +16,18 @@
 
 # 새롭게 알게 된 내용
 
+> props
+
+- 각 컴포넌트의 메인 const에 사용되는 지표들이 props 된 변수
+
+> filter 사용 예제
+
+```javascript
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const biggerThanFive = array.filter((number) => number > 5);
+// 결과: [6, 7, 8, 9, 10]
+```
+
 > onSubmit 대신 onClick 이벤트를 사용하는 이유
 
 - onSubmit 이벤트는 input에서 enter를 누르는 것으로도 발생 가능, 반면 onClick은 enter를 눌렀을 때 동작시키기 위해 따로 로직을 추가해줘야 함

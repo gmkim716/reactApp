@@ -46,11 +46,19 @@ const App = () => {
     [todos],
   );
 
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos],
+  );
+
   // <TodoTemplate> 태그로 감싸서 children 전달
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} /> {/* TodoListd에 props로 전달 */}
+      <TodoList todos={todos} onRemove={onRemove} />
+      {/* TodoListd에 props로 전달 */}
     </TodoTemplate>
   );
 };
