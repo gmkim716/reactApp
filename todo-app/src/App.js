@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 // useState: 상태 정의
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 // props
 import TodoTemplate from './components/TodoTemplate';
@@ -10,6 +10,7 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 const App = () => {
+  // useState 상태 정의
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -28,11 +29,28 @@ const App = () => {
     },
   ]);
 
+  // 고유값으로 사용될 id
+  // useState가 아닌 ref를 사용해서 변수 담기: id값은 렌더링 되는 정보가 아니므로
+  const nextId = useRef(4);
+
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1; // nextId 1씩 더하기
+    },
+    [todos],
+  );
+
   // <TodoTemplate> 태그로 감싸서 children 전달
   return (
     <TodoTemplate>
-      <TodoInsert />
-      <TodoList todos={todos} />
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} /> {/* TodoListd에 props로 전달 */}
     </TodoTemplate>
   );
 };
