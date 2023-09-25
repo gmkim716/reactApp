@@ -53,11 +53,22 @@ const App = () => {
     [todos],
   );
 
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        ),
+      );
+    },
+    [todos],
+  );
+
   // <TodoTemplate> 태그로 감싸서 children 전달
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} onRemove={onRemove} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
       {/* TodoListd에 props로 전달 */}
     </TodoTemplate>
   );
