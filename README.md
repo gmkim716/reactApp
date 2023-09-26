@@ -20,6 +20,13 @@
 - 리액트를 만드는 기술
 
 <br>
+
+## 설치 및 실행
+
+- project 다운로드
+- yarn add react-scripts
+
+<br>
 <br>
 
 # 새롭게 알게 된 내용
@@ -36,7 +43,7 @@
 > axios
 
 - HTTP 요청을 promise 기반으로 처리
-- `java yarn add axios`
+- `yarn add axios`
 
 <br>
 
