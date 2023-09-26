@@ -28,6 +28,7 @@ const NewsList = () => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // useEffect를 사용해 처음 렌더링 되는 시점에 API를 요청
   useEffect(() => {
     // async를 사용하는 함수는 따로 선언
     const fetchData = async () => {
@@ -51,6 +52,7 @@ const NewsList = () => {
   }
 
   // 아직 articles 값이 설정되지 않았을 때
+  // *반드시 필요한 과정: 이 작업이 없으면 데이터가 없을 때 null에 mapㅎ
   if (!articles) {
     return null;
   }

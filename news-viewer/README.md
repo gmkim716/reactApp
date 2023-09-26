@@ -13,3 +13,9 @@
 ## UI
 
 ## 개발 과정 기록
+
+> onSelect: category 값 업데이트 함수
+
+> App에서 category 상태를 useState로 관리
+
+> yarn add styled-components
