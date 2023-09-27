@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import NewsPage from './pages/NewsPage';
+import NewsList from './components/NewsList';
+import Categories from './components/Categories';
 
 const App = () => {
   return (

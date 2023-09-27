@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const categories = [
   {
@@ -27,7 +28,7 @@ const categories = [
     text: '스포츠',
   },
   {
-    name: 'tech',
+    name: 'technology',
     text: '기술',
   },
 ];
@@ -55,7 +56,7 @@ const Category = styled(NavLink)`
     color: #495057;
   }
 
-  $.active {
+  &.active {
     font-weight: 600;
     border-bottom: 2px solid #22b8cf;
     color: #22b8cf;
@@ -72,15 +73,15 @@ const Category = styled(NavLink)`
 const Categories = () => {
   return (
     <CategoriesBlock>
-      {categories.map((c) => {
+      {categories.map((c) => (
         <Category
           key={c.name}
           className={({ isActive }) => (isActive ? 'active' : undefined)}
           to={c.name === 'all' ? '/' : `/${c.name}`}
         >
           {c.text}
-        </Category>;
-      })}
+        </Category>
+      ))}
     </CategoriesBlock>
   );
 };

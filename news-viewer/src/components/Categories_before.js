@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Categories_before = [
+const categories_before = [
   {
     name: 'all',
     text: '전체보기',
@@ -74,7 +74,7 @@ const Categories = ({ onSelect, category }) => {
   return (
     <CategoriesBlock>
       {/* map을 이용해 전개 연산자 사용*/}
-      {categories.map((c) => (
+      {categories_before.map((c) => (
         <Category
           key={c.name}
           active={category === c.name} // active일 때: c.name
