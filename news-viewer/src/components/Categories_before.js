@@ -1,7 +1,6 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-const categories = [
+const Categories_before = [
   {
     name: 'all',
     text: '전체보기',
@@ -43,7 +42,7 @@ const CategoriesBlock = styled.div`
   }
 `;
 
-const Category = styled(NavLink)`
+const Category = styled.div`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;
@@ -55,34 +54,37 @@ const Category = styled(NavLink)`
     color: #495057;
   }
 
-  $.active {
-    font-weight: 600;
-    border-bottom: 2px solid #22b8cf;
-    color: #22b8cf;
-    &:hover {
-      color: #3bc9db;
-    }
-  }
+  ${(props) =>
+    props.active &&
+    css`
+      font-weight: 600;
+      border-bottom: 2px solid #22b8cf;
+      color: #22b8cf;
+      &:hover {
+        color: #3bc9db;
+      }
+    `}
 
   & + & {
     margin-left: 1rem;
   }
 `;
 
-const Categories = () => {
+const Categories = ({ onSelect, category }) => {
   return (
     <CategoriesBlock>
-      {categories.map((c) => {
+      {/* map을 이용해 전개 연산자 사용*/}
+      {categories.map((c) => (
         <Category
           key={c.name}
-          className={({ isActive }) => (isActive ? 'active' : undefined)}
-          to={c.name === 'all' ? '/' : `/${c.name}`}
+          active={category === c.name} // active일 때: c.name
+          onClick={() => onSelect(c.name)} // 클릭하면 onSelect 수행
         >
           {c.text}
-        </Category>;
-      })}
+        </Category>
+      ))}
     </CategoriesBlock>
   );
 };
 
-export default Categories;
+export default Categories_before;

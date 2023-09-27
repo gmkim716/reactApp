@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import axios from 'axios';
+import usePromise from '../lib/usePromise';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -24,9 +25,19 @@ const sampleArticle = {
 };
 
 const NewsList = ({ category }) => {
-  // [{변수명}, {값 변경을 위한 매서드}]
-  const [articles, setArticles] = useState(null);
-  const [loading, setLoading] = useState(false);
+  //== 커스텀 훅 사용: 코드가 간결해진다 ==//
+  // usePromise를 사용하면 NewsList에서 대기 중 상태 관리와 useEffect 설정을 직접하지 않아도 되므로 코드가 간결해진다
+  const [loading, response, error] = usePromise(() => {
+    const query = category == 'all' ? '' : `&category=${category}`;
+    return axios.get(
+      `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=ad25a6be891a40e5a75fcd651a48e8bd`,
+    );
+  }, [category]);
+
+  //== 커스텀 훅 사용 이전 ==//
+  // // [{변수명}, {값 변경을 위한 매서드}]
+  // const [articles, setArticles] = useState(null);
+  // const [loading, setLoading] = useState(false);
 
   // useEffect를 사용해 처음 렌더링 되는 시점에 API를 요청
   useEffect(() => {
@@ -55,11 +66,24 @@ const NewsList = ({ category }) => {
     return <NewsListBlock>대기 중...</NewsListBlock>;
   }
 
-  // 아직 articles 값이 설정되지 않았을 때
-  // *반드시 필요한 과정: 이 작업이 없으면 데이터가 없을 때 null에 map 함수가 없기 때문에 오류가 발생
-  if (!articles) {
+  // 아직 response 값이 설정되지 않았을 때
+  if (!response) {
     return null;
   }
+
+  // 에러가 발생했을 때
+  if (error) {
+    return <NewsListBlock>에러 발생!</NewsListBlock>;
+  }
+
+  // // 아직 articles 값이 설정되지 않았을 때
+  // // *반드시 필요한 과정: 이 작업이 없으면 데이터가 없을 때 null에 map 함수가 없기 때문에 오류가 발생
+  // if (!articles) {
+  //   return null;
+  // }
+
+  // response 값이 유효할 때
+  const { articles } = response.data;
 
   return (
     <NewsListBlock>

@@ -14,8 +14,10 @@
 
 ## 개발 과정 기록
 
+> 리액트 라우터 설치 : `yarn add react-router-dom`
+
 > onSelect: category 값 업데이트 함수
 
 > App에서 category 상태를 useState로 관리
 
-> yarn add styled-components
+> style 컴포넌트 설치 : `yarn add styled-components`
