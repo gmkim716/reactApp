@@ -10,8 +10,8 @@
 
 ## 구성
 
-14. 외부 API를 연동해서 뉴스 뷰어 만들기
-15. TodoApp 만들기
+2. 외부 API를 연동해서 뉴스 뷰어 만들기
+1. TodoApp 만들기
 
 <br>
 
@@ -38,6 +38,23 @@
 - axio로 API 호출해서 데이터 받아오기
 
 <br>
+<br>
+
+> 커스텀 hook 설정 : promise를 사용해야 하는 경우 간결하게 코드 작성 가능
+
+<br>
+
+> react는 여러 요소를 반환할 때 하나의 부모 요소로 감싸야 하는 규칙이 있다
+
+<br>
+
+> map을 이용해 전개 연산자 사용
+
+```javascript
+/* map을 이용해 전개 연산자 사용*/
+categories.map((c) => <Category key={c.name}>{c.text}</Category>);
+```
+
 <br>
 
 > axios
