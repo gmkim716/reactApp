@@ -6,7 +6,7 @@
 
 ## 구현 기능 목록
 
-![giff](https://github.com/gmkim716/reactApp/assets/81900687/797eb24f-ae51-49eb-86e6-5483f4f9cabd)
+![ezgif com-video-to-gif](https://github.com/gmkim716/reactApp/assets/81900687/693254c9-d815-4363-b1ff-a0a0d3ba9ac4)
 
 - https://newsapi.org/s/south-korea-news-api 활용: 뉴스 불러오기
 - 카테고리 선택에 따른 API 호출
