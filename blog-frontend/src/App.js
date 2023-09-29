@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import PostListPage from './pages/PostListPage';
 import LoginPage from './pages/LoginPage';
