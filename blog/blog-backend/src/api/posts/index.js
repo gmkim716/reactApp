@@ -16,13 +16,24 @@ const posts = new Router();
 //   };
 // };
 
-// postsCtrl에서 정의한 매서드 사용
 posts.get('/', postsCtrl.list);
 posts.post('/', postsCtrl.write);
-posts.get('/:id', postsCtrl.read);
-posts.delete('/:id', postsCtrl.remove);
-posts.put('/:id', postsCtrl.replace);
-posts.patch('/:id', postsCtrl.update);
+
+//== 형태 1: 라우터 경로가 한 눈에 들어온다, 형태 2: 중복되는 코드를 줄일 수 있다 ==//
+/* 형태 1 */
+// // postsCtrl에서 정의한 매서드 사용
+// posts.get('/:id', postsCtrl.checkObjectId.read);
+// posts.delete('/:id', postsCtrl.checkObjectId.remove);
+// // posts.put('/:id', postsCtrl.replace);
+// posts.patch('/:id', postsCtrl.checkObjectId.update);
+
+/* 형태 2: 리팩토링 */
+const post = new Router(); // /api/posts/:id
+posts.get('/', postsCtrl.read);
+posts.delete('/', postsCtrl.remove);
+posts.patch('/', postsCtrl.update);
+
+posts.use('/:id', postsCtrl.checkObjectId, post.routes());
 
 export default posts;
 // module.exports = posts;
