@@ -1,5 +1,10 @@
-const Router = require('koa-router');
-const posts = new require('./posts');
+/* 기존 코드 */
+// const Router = require('koa-router');
+// const posts = new require('./posts');
+
+/* ES Module 형태 변경 */
+import Router from 'koa-router';
+import posts from './posts';
 
 const api = new Router();
 
@@ -10,5 +15,7 @@ const api = new Router();
 
 api.use('/posts', posts.routes());
 
-// 라우터 내보내기
-module.exports = api;
+// // 라우터 내보내기
+// module.exports = api;
+
+export default api;

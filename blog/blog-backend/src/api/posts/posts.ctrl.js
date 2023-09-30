@@ -14,7 +14,7 @@ POST /api/posts
 { title, body }
 write
 */
-exports.write = (ctx) => {
+export const write = (ctx) => {
   // REST API의 Request Body에는 ctx.request.body에서 조회할 수 있다
   const { title, body } = ctx.request.body;
 
@@ -29,7 +29,7 @@ exports.write = (ctx) => {
 GET /api/posts
 list
 */
-exports.list = (ctx) => {
+export const list = (ctx) => {
   ctx.body = posts;
 };
 
@@ -37,7 +37,7 @@ exports.list = (ctx) => {
 GET /api/posts/:id
 read
 */
-exports.read = (ctx) => {
+export const read = (ctx) => {
   const { id } = ctx.params;
 
   // 주어진 id 값으로 포스트를 찾는다
@@ -59,7 +59,7 @@ exports.read = (ctx) => {
 DELETE /api/posts/:id
 remove
 */
-exports.remove = (ctx) => {
+export const remove = (ctx) => {
   const { id } = ctx.params;
 
   // 해당 id를 가진 post가 몇 번째인지 확인
@@ -84,7 +84,7 @@ PUT /api/posts/:id
 { title, body }
 replace
 */
-exports.replace = (ctx) => {
+export const replace = (ctx) => {
   // PUT 메서드는 전체 포스트 정보를 입력해 데이터를 통째로 교체할 때 사용
   const { id } = ctx.params;
 
@@ -114,7 +114,7 @@ PATCH /api/posts/:id
 { title, body }
 update
 */
-exports.update = (ctx) => {
+export const update = (ctx) => {
   // PATCH 메서드는 주어진 필드만 교체
   const { id } = ctx.params;
 
