@@ -29,9 +29,9 @@ posts.post('/', postsCtrl.write);
 
 /* 형태 2: 리팩토링 */
 const post = new Router(); // /api/posts/:id
-posts.get('/', postsCtrl.read);
-posts.delete('/', postsCtrl.remove);
-posts.patch('/', postsCtrl.update);
+post.get('/', postsCtrl.read);
+post.delete('/', postsCtrl.remove);
+post.patch('/', postsCtrl.update);
 
 posts.use('/:id', postsCtrl.checkObjectId, post.routes());
 
