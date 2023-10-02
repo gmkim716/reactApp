@@ -10,7 +10,14 @@ const PostSchema = new Schema({
     type: Date,
     default: Date.now, // 현재 날짜를 기본값으로 지정
   },
+  user: {
+    _id: mongoose.Types.ObjectId,
+    username: String,
+  },
 });
+
+const Post = mongoose.model('Post', PostSchema);
+export default Post;
 
 /* 좀 더 복잡한 스키마 예시 */
 // const AuthorSchema = new Schema({
@@ -27,6 +34,3 @@ const PostSchema = new Schema({
 //   },
 //   extra: Schema.Types.Mixed,
 // });
-
-const Post = mongoose.model('Post', PostSchema);
-export default Post;
