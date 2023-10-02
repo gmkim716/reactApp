@@ -55,7 +55,7 @@ export const write = async (ctx) => {
 };
 
 /*
-  GET /api/posts
+  GET /api/posts?username=&tag=&page=
 */
 export const list = async (ctx) => {
   // query는 문자열이기 때문에 숫자로 변환해줘야 한다
@@ -67,11 +67,17 @@ export const list = async (ctx) => {
     return;
   }
 
+  const { tag, username } = ctx.query; // tag, username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
+  const query = {
+    ...(username ? { 'user.username': username } : {}),
+    ...(tag ? { tags: tag } : {}),
+  };
+
   //== body의 길이가 200자 이상일 때 ...을 붙이고 문자열을 자르기==//
   // 방법 1: toJSON() 함수 사용, cf. find()를 통해 조회한 데이터는 데이터를 바로 변형할 수 없다. 대신 toJSON()함수로 JSON 형태로 변환 후 변형 가능
   // 방법 2: lean() 함수 사용, 데이터를 처음부터 JSON 형태로 조회
   try {
-    const posts = await Post.find()
+    const posts = await Post.find(query)
       .sort({ _id: -1 }) // -1: 내림차순 정렬, 1: 오름차순 정렬
       .limit(10) // 보이는 개수 제한
       .skip((page - 1) * 10) // 페이지 기능 구현
@@ -79,7 +85,7 @@ export const list = async (ctx) => {
       .exec();
 
     // 마지막 페이지 번호 알려주기
-    const postCount = await Post.countDocuments().exec();
+    const postCount = await Post.countDocuments(query).exec();
     ctx.set('Last-Page', Math.ceil(postCount / 10)); // Last-Page라는 커스텀 HTTP 헤더를 설정
 
     //* 방법 1 사용 */
