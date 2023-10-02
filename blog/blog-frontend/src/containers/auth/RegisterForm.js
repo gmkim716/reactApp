@@ -11,6 +11,10 @@ const RegisterForm = () => {
     authError: auth.authError,
   }));
 
+  // console.log(form, 'form');
+  // console.log(auth, 'auth');
+  // console.log(authError, 'authError');
+
   // input 변경 이벤트 핸들러
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -40,7 +44,7 @@ const RegisterForm = () => {
     dispatch(initializeForm('register'));
   }, [dispatch]);
 
-  // authError, auth 결과를 얻었을 때 작업 실행
+  // authError, auth 결과를 얻었을 때 확인
   useEffect(() => {
     if (authError) {
       console.log('오류 발생');
