@@ -5,6 +5,7 @@
 /* ES Module 형태 변경 */
 import Router from 'koa-router';
 import posts from './posts';
+import auth from './auth';
 
 const api = new Router();
 
