@@ -102,7 +102,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
         {/* 방식 2. styled 함수를 사용해 새로운 컴포넌트 정의 */}{' '}
         {/* 가독성이 더 좋기 때문에 권장하는 방법 */}
         <ButtonWithMarginTop cyan fullWidth>
-          로그인
+          {type === 'login' ? '로그인' : '회원가입'}
         </ButtonWithMarginTop>
       </form>
       <Footer>

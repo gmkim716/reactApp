@@ -46,6 +46,7 @@ export const login = createAction(LOGIN, ({ username, password }) => ({
 // 사가 생성
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
+
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
@@ -80,7 +81,7 @@ const auth = handleActions(
     [INITIALIZE_FORM]: (state, { payload: form }) => ({
       ...state,
       [form]: initialState[form],
-      authError: null, // 폼 전환 시 회언 인증 에러 초기화
+      authError: null, // 폼 전환 시 회원 인증 에러 초기화
     }),
 
     // 회원 가입 성공

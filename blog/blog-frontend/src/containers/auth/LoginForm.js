@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm } from '../../modules/auth';
-import AuthForm from '../../components/Auth/AuthForm';
+import AuthForm from '../../components/auth/AuthForm';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
