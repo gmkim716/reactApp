@@ -868,9 +868,9 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 // DOM 레퍼런스 만들기
 var divToggle = document.querySelector(".toggle");
-var counter = document.querySelector(".h1");
-var btnIncrease = document.querySelector(".#increase");
-var btnDecrease = document.querySelector(".#decrease");
+var counter = document.querySelector("h1");
+var btnIncrease = document.querySelector("#increase");
+var btnDecrease = document.querySelector("#decrease");
 
 // 액션 이름 정의 cf. 액션: 프로젝트의 상태에 변화를 일으키는 것
 var TOGGLE_SWITCH = "TOGGLE_SWITCH";
@@ -944,6 +944,17 @@ var render = function render() {
   counter.innerText = state.counter;
 };
 render();
+store.subscribe(render); // 상태가 업데이트될 때마다 render 함수 호출
+
+divToggle.onclick = function () {
+  store.dispatch(toggleSwitch());
+};
+btnIncrease.onclick = function () {
+  store.dispatch(increase(1));
+};
+btnDecrease.onclick = function () {
+  store.dispatch(decrease(1));
+};
 },{"redux":"node_modules/redux/es/redux.js"}],"../../../../../../opt/homebrew/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -969,7 +980,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63181" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64997" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

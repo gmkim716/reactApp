@@ -2,9 +2,9 @@ import { createStore } from "redux";
 
 // DOM 레퍼런스 만들기
 const divToggle = document.querySelector(".toggle");
-const counter = document.querySelector(".h1");
-const btnIncrease = document.querySelector(".#increase");
-const btnDecrease = document.querySelector(".#decrease");
+const counter = document.querySelector("h1");
+const btnIncrease = document.querySelector("#increase");
+const btnDecrease = document.querySelector("#decrease");
 
 // 액션 이름 정의 cf. 액션: 프로젝트의 상태에 변화를 일으키는 것
 const TOGGLE_SWITCH = "TOGGLE_SWITCH";
@@ -67,3 +67,14 @@ const render = () => {
 };
 
 render();
+store.subscribe(render); // 상태가 업데이트될 때마다 render 함수 호출
+
+divToggle.onclick = () => {
+  store.dispatch(toggleSwitch());
+};
+btnIncrease.onclick = () => {
+  store.dispatch(increase(1));
+};
+btnDecrease.onclick = () => {
+  store.dispatch(decrease(1));
+};
