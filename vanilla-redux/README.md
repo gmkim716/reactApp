@@ -1,0 +1,2 @@
+- 실행 : parcel index.html
+- 리덕스 설치 : yarn add redux
