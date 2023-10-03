@@ -11,19 +11,29 @@ const initialState = {
   number: 0,
 };
 
-function counter(state = initialState, action) {
-  switch (action.type) {
-    case INCREASE:
-      return {
-        number: state.number + 1,
-      };
-    case DECREASE:
-      return {
-        number: state.number - 1,
-      };
-    default:
-      return state;
-  }
-}
+// handleActions 함수를 사용하면 더욱 간결하게 작성이 가능
+const counter = handleActions(
+  {
+    [INCREASE]: (state, action) => ({ number: StaticRange.number + 1 }),
+    [INCREASE]: (state, action) => ({ number: StaticRange.number - 1 }),
+  },
+  initialState,
+);
+
+// handleActions 함수 사용하기 전
+// function counter(state = initialState, action) {
+//   switch (action.type) {
+//     case INCREASE:
+//       return {
+//         number: state.number + 1,
+//       };
+//     case DECREASE:
+//       return {
+//         number: state.number - 1,
+//       };
+//     default:
+//       return state;
+//   }
+// }
 
 export default counter;

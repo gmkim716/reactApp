@@ -2,7 +2,23 @@
 
 ### 진행
 
+- 모듈의 상태를 설계할 때는 객체의 깊이가 너무 깊어지지 않도록 주의해야 함 <br>
+  객체의 구조가 복잡해지거나 객체로 이루어진 배열을 다룰 경우, immer를 하용하면 편리하게 상태를 관리할 수 있다 <br>
+  `yarn add immer`
+
+- createActions, handleActions 적용
+
+- redux-actions, immer을 사용하면 액션 생성 함수를 더 짧게 작성 가능 <br>
+  `yarn add redux-actions`
+
+- 컨테이너 컴포넌트 만들기
+
+- redux-devtools-extension 설치
+
 - 리덕스 적용
+
+  - provider 컴포넌트를 사용해 프로젝트에 리덕스 적용
+  - 스토어 만들기
 
 - 루트 디류서 만들기
 
