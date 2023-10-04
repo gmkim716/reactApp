@@ -11,10 +11,16 @@ export default function createRequestSaga(type, request) {
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
 
-  return function* (action) {
+  /*
+    function*: 제너레이터 함수: 실행을 일시중단하고, 필요한 만큼 여러 반 값을 반환할 수 있는 함수, 비동기 작업
+    yield: 제너레이터 함수 내부에서 오른쪽에 위치한 표현식 실행을 기다림, 비동기 작업 수행
+    call: 함수 호출하고 결과를 기다림
+  */
+  return function* (action) {   
     yield put(startLoading(type)); // 로딩 시작
     try {
-      const response = yield call(request, action.payload);
+      const response = yield call(request, action.payload);  // request 함수 호출, actions.payload를 인수로 전달
+      console.log(response, "res") //
       yield put({
         type: SUCCESS,
         payload: response.data,
