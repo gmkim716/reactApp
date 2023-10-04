@@ -1,5 +1,5 @@
-import { createAction, handleActions } from 'react';
-import produce from 'immer';
+import { createAction, handleActions } from 'redux-actions';
+import { produce } from 'immer';
 
 // 액션 타입 정의
 const CHANGE_INPUT = 'todos/CHANGE_INPUT'; // 인풋 값 변경
@@ -10,7 +10,7 @@ const REMOVE = 'todos/REMOVE'; // todo 제거
 //== 액션 생성 함수 만들기 ==//
 
 /* createAction 함수를 이용해 코드를 간결하게 정리 */
-export const changeInput = createAction(CHANGE_INPUT, (input) => input);
+// export const changeInput = createAction(CHANGE_INPUT, (input) => input);
 
 let id = 3; // insert가 호출될 때마다 1씩 더해진다
 export const insert = createAction(INSERT, (text) => ({
