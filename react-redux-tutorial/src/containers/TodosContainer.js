@@ -2,7 +2,7 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { changeInput, insert, toggle, remove } from '../modules/todos';
 import Todos from '../components/Todos';
 import { useCallback } from 'react';
-import useActions from '../lib/useActions';  // useActions 사용
+import useActions from '../lib/useActions'; // useActions 사용
 
 const TodosContainer = () => {
   const { input, todos } = useSelector(({ todos }) => ({
@@ -17,7 +17,7 @@ const TodosContainer = () => {
   */
   const [onChangeInput, onInsert, onToggle, onRemove] = useActions(
     [changeInput, insert, toggle, remove],
-    []
+    [],
   );
 
   /* useActions 사용 이전 */
@@ -30,20 +30,23 @@ const TodosContainer = () => {
   // const onRemove = useCallback(id => dispatch(remove(id)), [dispatch]);
 
   return (
-    <Todos 
-      input={input} 
-      todos={todos} 
-      onChangeInput={onChangeInput} 
-      onInsert={onInsert} 
-      onToggle={onToggle} 
-      onRemove={onRemove} 
+    <Todos
+      input={input}
+      todos={todos}
+      onChangeInput={onChangeInput}
+      onInsert={onInsert}
+      onToggle={onToggle}
+      onRemove={onRemove}
     />
-  )
-}
+  );
+};
 
 export default TodosContainer;
 
-/* 코드 간소화: connect대신 useSelector, useDispatch Hook 사용 // CounterContainer 주석 참고 */
+/* 코드 간소화: connect대신 useSelector, useDispatch Hook 사용 // CounterContainer 주석 참고 
+  - connect 사용: 컨테이너 컴포넌트의 부모 컴포넌트가 리렌더링 될 때, props가 바뀌지 않았다면 리렌더링이 방지되어 성능 최적화 진행
+  - useSelector 사용: 최적화 작업이 자동으로 이루어지지 않음 => 성능 최적화를 위해 React.memo를 컨테이너 컴포넌트에 사용해 줘야 한다 
+*/
 // const TodosContainer = ({
 //   input,
 //   todos,
