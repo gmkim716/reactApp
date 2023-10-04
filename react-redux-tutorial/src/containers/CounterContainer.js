@@ -16,7 +16,7 @@ export default connect(
     number: state.counter.number,
   }),
   (dispatch) =>
-    bindActionCreators(
+    bindActionCreators(  // *bindActionCreators: 액션 생성자 함수를 자동으로 dispatch 함수로 연결, 
       {
         increase,
         decrease,
@@ -47,9 +47,11 @@ export default connect(
 // const mapDispatchToProps = (dispatch) => ({
 //   // 임시 함수
 //   increase: () => {
+//     // console.log('increase');
 //     dispatch(increase());
 //   },
 //   decrease: () => {
+//     // console.log('decrease');
 //     dispatch(decrease());
 //   },
 // });
