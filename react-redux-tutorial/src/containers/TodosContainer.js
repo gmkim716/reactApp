@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { changeInput, insert, toggle, remove } from '../modules/todos';
 import Todos from '../components/Todos';
@@ -13,7 +14,6 @@ const TodosContainer = () => {
   /* useActions 사용: 코드 간소화 
     비구조화 할당 문법을 통해 배열형태로 정의할 수 있다
     useActions(함수의 배열, 추가 설정(현재 빈 배열))
-
   */
   const [onChangeInput, onInsert, onToggle, onRemove] = useActions(
     [changeInput, insert, toggle, remove],
@@ -41,7 +41,8 @@ const TodosContainer = () => {
   );
 };
 
-export default TodosContainer;
+// React.memo: useSelector를 사용해 리덕스 상태를 조회할 때는 React.memo를 사용해 최적화 작업을 해줘야 한다
+export default React.memo(TodosContainer);  
 
 /* 코드 간소화: connect대신 useSelector, useDispatch Hook 사용 // CounterContainer 주석 참고 
   - connect 사용: 컨테이너 컴포넌트의 부모 컴포넌트가 리렌더링 될 때, props가 바뀌지 않았다면 리렌더링이 방지되어 성능 최적화 진행
@@ -69,7 +70,7 @@ export default TodosContainer;
 
 // export default connect(
 //   ({ todos }) => ({
-//     // 비구조화 할당을 통해 todos륿 분리
+//     // 비구조화 할당을 통해 todos를 분리
 //     // state.todos.input 대신 todos.input 사용
 //     input: todos.input,
 //     todos: todos.todos,

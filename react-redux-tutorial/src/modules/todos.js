@@ -1,21 +1,22 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
 
-// 액션 타입 정의
+// 1-1.액션 타입 정의
 const CHANGE_INPUT = 'todos/CHANGE_INPUT'; // 인풋 값 변경
 const INSERT = 'todos/INSERT'; // 새로운 todo 등록
 const TOGGLE = 'todos/TOGGLE'; // todo 체크/체크해제
 const REMOVE = 'todos/REMOVE'; // todo 제거
 
-//== 액션 생성 함수 만들기 ==//
+
+//== 1-2. 액션 생성 함수 만들기 ==//
 
 /* createAction 함수를 이용해 코드를 간결하게 정리 */
 export const changeInput = createAction(CHANGE_INPUT, (input) => input);
 
-let id = 3; // insert가 호출될 때마다 1씩 더해진다
+let id = 3; // insert가 호출될 때마다 1씩 더해진다, 미리 만들어둔 값이 2개라서 3부터 시작
 export const insert = createAction(INSERT, (text) => ({
   id: id++,
-  text,
+  text,  // cf. text=text와 같이 입력하지 않아도 됨 // JS ES6인 축약된 객체 리터럴 문법로 인함 
   done: false,
 }));
 
@@ -23,7 +24,7 @@ export const toggle = createAction(TOGGLE, (id) => id);
 export const remove = createAction(REMOVE, (id) => id);
 
 /* createActions 사용 이전 */
-// export const changeInput = (input) => ({
+// export const changeInput = (input) => ({  // type외에 input이라는 추가 파라미터를 받아 사용
 //   type: CHANGE_INPUT,
 //   input,
 // });
@@ -48,7 +49,8 @@ export const remove = createAction(REMOVE, (id) => id);
 //   id,
 // });
 
-//== 초기 상태, 리듀서 함수 만들기 ==//
+
+// 2. 초기 상태, 리듀서 함수 만들기
 const initialState = {
   input: '',
   todos: [
@@ -65,11 +67,17 @@ const initialState = {
   ],
 };
 
-/* handleActions + immer 적용 */
-
+/* handleActions + immer 적용 
+  immer: 객체를 다룰 때 immer를 사용하면 편리하게 사용 가능
+  produce: 불변성을 유지하면서 상태를 변경하는 작업에 사용, immer 모듈에서 제공 
+*/
 const todos = handleActions(
   {
-    [CHANGE_INPUT]: (state, { payload: input }) =>
+    /* 
+      액션 생성 함수는 액션에 필요한 추가 데이터를 모두 payload라는 이름으로 사용
+      action.id, action.payload.id를 조회하는 대신, 공통적으로 action.payload 값을 조회하도록 리듀서를 구현
+    */
+    [CHANGE_INPUT]: (state, { payload: input }) =>  // { payload: input }: payload의 별칭으로 input을 사용
       produce(state, (draft) => {
         draft.input = input;
       }),

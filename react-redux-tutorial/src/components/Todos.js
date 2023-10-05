@@ -1,3 +1,6 @@
+// TodosContainer에서 가져온 리덕스 값을 prop 받아 사용
+
+//== TodoItem 컴포넌트 정의 ==// 
 const TodoItem = ({ todo, onToggle, onRemove }) => {
   return (
     <div>
@@ -5,8 +8,8 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
         type="checkbox"
         onClick={() => onToggle(todo.id)}
         checked={todo.done}
-        readOnly={true}
-      />
+        readOnly={true}  
+        />
       <span style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
         {todo.text}
       </span>
@@ -15,6 +18,7 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
   );
 };
 
+//== Todos 컴포넌트 정의 ==//
 const Todos = ({
   input, // 인풋에 입력되는 텍스트
   todos, // 할일 목록이 들어있는 객체
