@@ -91,7 +91,7 @@ console.log(age);  // 30
   - container 컴포넌트 : `리덕스와 연동`, 리덕스로부터 상태를 받아오거나 리덕스 스토어에 액션 디스패치 
 
 
-  ![image](https://github.com/gmkim716/reactApp/assets/81900687/9797510a-088d-4b74-a618-5e9f21f48edf){: width="200" height="200"}
+  ![image](https://github.com/gmkim716/reactApp/assets/81900687/9797510a-088d-4b74-a618-5e9f21f48edf)
 
 
 <br>
