@@ -1,11 +1,11 @@
 import SampleContainer from "./containers/SampleContainer";
-// import CounterContainer from "./containers/CounterContainer";
+import CounterContainer from "./containers/CounterContainer";
 
 const App = () => {
   return (
     <div>
-      <SampleContainer />
-      {/* <CounterContainer /> */}
+      {/* <SampleContainer /> */}
+      <CounterContainer />
     </div>
   );
 };
