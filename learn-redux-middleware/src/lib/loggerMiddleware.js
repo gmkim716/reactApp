@@ -8,7 +8,6 @@
 const loggerMiddleware = (store) => (next) => (action) => {
   
   /* 미들웨어 기본 구조: 1. 이전 상태 2. 액션 정보 3. 새로워진 상태 */
-  
   console.group(action && action.type);  // 액션 타입으로 log를 그룹화
   console.log("이전 상태", store.getState());
   console.log("액션", action);
