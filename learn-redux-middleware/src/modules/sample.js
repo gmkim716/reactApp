@@ -22,9 +22,11 @@ const GET_USERS_FAILURE = "sample/GET_USERS_FAILURE";
 export const getPost = createAction(GET_POST, (id) => id);
 export const getUsers = createAction(GET_USERS);
 
+/* createReqeustSaga 활용: 코드를 간결하게 구현 가능 */
 const getPostSaga = createRequestSaga(GET_POST, api.getPost);
 const getUserSaga = createRequestSaga(GET_USERS, api.getUsers);
 
+/* createRequestSaga 이전 */
 // function* getPostSaga(action) {
 //   yield put(startLoading(GET_POST)); // 로딩 시작
 
