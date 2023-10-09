@@ -52,14 +52,14 @@ function* getPostSaga(action) {
 function* getUserSaga() {
   yield put(startLoading(GET_USERS));
   try {
-    const post = yield call(api.getUsers);
+    const users = yield call(api.getUsers);
     yield put({
-      type: GET_POST_SUCCESS,
-      payload: post.data,
+      type: GET_USERS_SUCCESS,
+      payload: users.data,
     });
   } catch (e) {
     yield put({
-      type: GET_POST_FAILURE,
+      type: GET_USERS_FAILURE,
       payload: e,
       error: true,
     });
