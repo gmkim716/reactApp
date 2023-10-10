@@ -167,31 +167,31 @@ const biggerThanFive = array.filter((number) => number > 5);
 
 ## 3장 컴포넌트
 
-#### 함수형 컴포넌트 vs 클래스형 컴포넌트
+### 함수형 컴포넌트 vs 클래스형 컴포넌트
 
-함수형 컴포넌트
+#### 함수형 컴포넌트
 
 - `메모리 자원을 적게 사용, 빠르게 선언 가능`
 
-클래스형 컴포넌트
+#### 클래스형 컴포넌트
 
 - `state, lifecycle 이용, 임의 메서드 정의 가능`
 
 - 클래스형 컴포넌트는 render 함수가 꼭 있어야 하고, 그안에서 보여줘야 할 JSX를 반환해야 한다
 
-#### props
+### props
 
 - defaultProps : props 값을 지정하지 않았을 때 보여줄 기본값 설정
 
-#### 비구조화 할당
+### 비구조화 할당
 
-- 객체에서 값을 추출하는 문법
+- 비구조화 할당: 객체에서 값을 추출하는 문법, 더 짧은 코드로 작성이 가능
 
 ```javascript
   const MyComponent = ({ name, children }) => {
     return (
       <div>
-        안녕하세요, 제 이름은 {name} 입니. children 값은 {children} 입니다.
+        안녕하세요, 제 이름은 {name} 입니다. children 값은 {children} 입니다.
       </div>
     )
   }
@@ -201,4 +201,55 @@ const biggerThanFive = array.filter((number) => number > 5);
   }
 
   export default MyComponent;
+```
+
+### propsType 검증
+
+```javascript
+import PropTypes from 'prop-types';
+
+const MyComponent = ({ name, favoriteNumber, children }) => {
+  return (...);
+}
+
+MyComponent.defaultProps = {
+  name: '기본 이름';
+}
+
+MyComponent.propTypes = {
+  name: PropType.string,  // prop 받은 name이 string 타입이어야 함
+  favoriteNumber: PropTypes.number.isRequired  // isRequired: 필수 props로 지정
+}
+
+export default MyComponent;
+```
+
+#### defaultProps와 propsTypes를 설정할 때 class 내부에서 지정하는 법
+
+```javascript
+const MyComponent = ({ name, favoriateNumber, children }) => {
+  static defaultProps = {
+    name: '기본 이름',
+  };
+  static propsTypes = {
+    name: PropTypes.string,
+    favoriteNumber: PropTypes.number.isRequired
+  }
+  render () {
+    return (...)
+  }
+}
+```
+
+### state
+
+- 컴포넌트 내부에서 바뀔 수 있는 값을 의미
+
+- 리액트에는 두 가지 종류의 state가 있다:
+
+  1. 클래스형 컴포넌트가 지니고 있는 state
+  2. 함수 컴포넌트에서 useState라는 함수를 통해 사용하는 state
+
+```javascript
+
 ```
