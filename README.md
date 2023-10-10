@@ -13,8 +13,8 @@
 3. 프론트엔드 프로젝트 : 시작 및 회원 인증 구현
 4. 외부 API를 연동해서 뉴스 뷰어 만들기
 5. TodoApp 만들기
-16. vanilla-redux: 리덕스 라이브러리 이해하기
-17. react-redux-tutorial: 리덕스를 사용해서 리액트 애플리케이션 상태 관리하기
+6. vanilla-redux: 리덕스 라이브러리 이해하기
+7. react-redux-tutorial: 리덕스를 사용해서 리액트 애플리케이션 상태 관리하기
 
 <br>
 
@@ -160,3 +160,45 @@ const biggerThanFive = array.filter((number) => number > 5);
 > react에서 파라미터(children)을 컴포넌트로 전달
 
 - 해당 컴포넌트 태그로 파라미터를 감싼다
+
+<hr>
+
+# 학습 내용 정리
+
+## 3장 컴포넌트
+
+#### 함수형 컴포넌트 vs 클래스형 컴포넌트
+
+함수형 컴포넌트
+
+- `메모리 자원을 적게 사용, 빠르게 선언 가능`
+
+클래스형 컴포넌트
+
+- `state, lifecycle 이용, 임의 메서드 정의 가능`
+
+- 클래스형 컴포넌트는 render 함수가 꼭 있어야 하고, 그안에서 보여줘야 할 JSX를 반환해야 한다
+
+#### props
+
+- defaultProps : props 값을 지정하지 않았을 때 보여줄 기본값 설정
+
+#### 비구조화 할당
+
+- 객체에서 값을 추출하는 문법
+
+```javascript
+  const MyComponent = ({ name, children }) => {
+    return (
+      <div>
+        안녕하세요, 제 이름은 {name} 입니. children 값은 {children} 입니다.
+      </div>
+    )
+  }
+
+  MyComponent.defaultProps = {
+    name: '기본 이름';
+  }
+
+  export default MyComponent;
+```
