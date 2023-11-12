@@ -1,25 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import PostListPage from './pages/PostListPage';
 import LoginPage from './pages/LoginPage';
+import PostListPage from './pages/PostListPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
+import PostPage from './pages/PostPage';
 
+// App: 라우터 경로를 지정
 const App = () => {
   return (
-    // Route 컴포넌트: 각 라우터의 경로 설정
     <Routes>
-      {/* 파라미터가 주어지지 않은 경우: 전체 포스트 목록 */}
       <Route path="/" element={<PostListPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/write" element={<WritePage />} />
 
-      {/* 파라미터가 주어진 경우: 특정 사용자가 작성한 포스트 목록  */}
-      <Route path="/@:username">
+      {/* 특정 사용자가 작성한 포스트 목록 */}
+      <Route path="/:username">
         <Route index element={<PostListPage />} />
-        <Route path=":postId" element={<PostListPage />} />
+        <Route path=":postId" element={<PostPage />} />
       </Route>
+      {/* 위 코드와 동일 */}
+      {/* <Route path="/@:username" element={<PostListPage />} /> */}
+      {/* <Route path="/@:username/:postId" element={<PostListPage />} /> */}
     </Routes>
   );
 };

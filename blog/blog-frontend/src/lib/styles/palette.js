@@ -1,6 +1,4 @@
-// 색상을 사용할 때 쉽게 뽑아서 쓸 수 있도록 정해놓은 파일
 // source: https://yeun.github.io/open-color/
-
 const palette = {
   gray: [
     '#f8f9fa',
