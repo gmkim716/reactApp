@@ -12,6 +12,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Provider를 통해 리액트 프로젝트에 리덕스 적용
   <Provider store={store}>
     <BrowserRouter>
       <App />
