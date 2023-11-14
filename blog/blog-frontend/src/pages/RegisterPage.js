@@ -1,7 +1,15 @@
 import React from 'react';
+import AuthTemplate from '../components/common/auth/AuthTemplate';
+import AuthForm from '../components/common/auth/AuthForm';
+import RegisterForm from '../components/common/auth/RegisterForm';
 
 const RegisterPage = () => {
-  return <div>등록 페이지</div>;
+  return (
+    <AuthTemplate>
+      {/* <AuthForm type="register" /> */}
+      <RegisterForm />
+    </AuthTemplate>
+  );
 };
 
 export default RegisterPage;
