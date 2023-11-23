@@ -1,6 +1,7 @@
 # blog-frontend
 
 - 리액트를 다루는 기술 24강\_프론트엔드 프로젝트: 시작 및 회원 인증 구현
+- 11/11 재생성 후 작업
 
 <br>
 
@@ -26,4 +27,3 @@
 - 라우터 적용: yarn add react-router-dom
 - .prettierrc, jsconfig.json 추가
 - yarn create react-app blog-frontend
-

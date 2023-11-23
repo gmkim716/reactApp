@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import palette from '../../../lib/styles/palette';
-import { Link } from '../../../../../../node_modules/react-router-dom/dist/index';
+import palette from '../../lib/styles/palette';
+import { Link } from '../../../../../node_modules/react-router-dom/dist/index';
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
