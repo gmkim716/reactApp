@@ -87,16 +87,16 @@ function App_v1() {
 
 
   /* useMemo : 연산값 재사용 */
-  const countActiveUsers= (users) => {
+  const countActiveUsers = (users) => {
     console.log("활성 사용자를 세는 중..");
 
     // user.acive = true인 사용자 집합의 수 반환
     return users.filter(user => user.active).length;
   }
 
+  // users 값이 변경되었을 때, 함수 호출, 변경되지 않았다면 이전에 연산한 값 재사용
   const count = useMemo(() => 
-    countActiveUsers(users), [users]  // users 값이 변경되었을 때, 함수 호출, 변경되지 않았다면 이전에 연산한 값 재사용
-  );
+    countActiveUsers(users), [users]);
 
   /* useCallback : 함수 재사용
     - 매서드에 훅을 걸어, 특정 값이 변경되었을 때만 함수를 새로 만들어 진행하도록 설정한다
