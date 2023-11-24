@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const InputSample = () => {
+function InputSample () {
 
 	/* 데이터 정의 */
 	const [ inputs, setInputs ] = useState({

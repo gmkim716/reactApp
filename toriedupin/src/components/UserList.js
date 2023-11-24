@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 /* User를 컴포넌트로 생성하지 말고 UserList에서 정의해서 사용 가능 */
-const User = ({ user, onRemove, onToggle }) => {
+const User = React.memo(function User({user, onRemove, onToggle }) {
 
 	/*
 		useEffect: 첫 번째 인자: 함수, 두 번째 인자 : 의존값 배열 
@@ -10,16 +10,16 @@ const User = ({ user, onRemove, onToggle }) => {
 		- 리액트 컴포넌트는 부모 컴포넌트가 리렌더링 되면 자식 컴포넌트 또한 리렌더링이 진행
 		- 컴포넌트 최적화 과정에서 Virtual DOM에 렌더링하는 리소스를 아끼는 방법도 있다 
 	*/
-	useEffect(() => {
-		console.log('user 값이 설정됨');
-		console.log(user);
-		return () => {
-			console.log('user가 바뀌기 전..')
-			console.log(user)
-		}
-	}, [user])
+	// useEffect(() => {
+	// 	console.log('user 값이 설정됨');
+	// 	console.log(user);
+	// 	return () => {
+	// 		console.log('user가 바뀌기 전..')
+	// 		console.log(user)
+	// 	}
+	// }, [user])
 
-	
+
 	return (
 		<div>
 			<b>{user.id}.</b>
@@ -37,9 +37,9 @@ const User = ({ user, onRemove, onToggle }) => {
 			<button onClick={() => onRemove(user.id)}>삭제</button>
 		</div>
 	);
-}
+});
 
-const UserList = ({ users, onRemove, onToggle }) => {
+function UserList ({ users, onRemove, onToggle }) {
 	return (
 		<div>
 			{users.map((user, idx) => (
@@ -53,4 +53,5 @@ const UserList = ({ users, onRemove, onToggle }) => {
 	)
 }
 
-export default UserList
+// 리렌더링이 필요한 상황에만 렌더링 하도록 설정
+export default React.memo(UserList)
