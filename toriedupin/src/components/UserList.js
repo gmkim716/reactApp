@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { UserDipatch } from "../App";
+import { UserDipatch } from "../App_v4_backup";
 
 /* User를 컴포넌트로 생성하지 말고 UserList에서 정의해서 사용 가능 */
 /* ContextAPI로 대체 */
