@@ -2,6 +2,7 @@ import React from "react";
 import Greetings from "./components/Greetings";
 import Counter from "./components/Counter";
 import MyForm from "./components/MyForm";
+import ReducerSample from "./components/ReducerSample";
 
 const App: React.FC = () => {
   const onClick = (name: string) => {
@@ -19,6 +20,8 @@ const App: React.FC = () => {
       <Counter />
       <hr />
       <MyForm onSubmit={onSubmit} />
+      <hr />
+      <ReducerSample />
     </>
   );
 };
