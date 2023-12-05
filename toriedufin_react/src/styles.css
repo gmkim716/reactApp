@@ -153,3 +153,8 @@
 .react-calendar__navigation__next2-button {
   visibility: hidden;
 }
+
+/* 특정 날짜 표시 */
+.highlight {
+  color: red;
+}

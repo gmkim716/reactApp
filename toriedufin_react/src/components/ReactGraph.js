@@ -32,7 +32,6 @@ const data = {
 function ReactGraph() {
   return (
     <div>
-      <h2>React Bar Chart Example</h2>
       <Line type="line" data={data} />
     </div>
   );

@@ -1,18 +1,33 @@
+import moment from "moment";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import { startOfMonth, endOfMonth, max } from "date-fns";
+
+const marks = [
+  "15-12-2023",
+  "03-12-2023",
+  "07-12-2023",
+  "12-12-2023",
+  "13-12-2023",
+  "15-12-2023",
+];
 
 function ReactCalendar() {
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
 
-  const minDate = startOfMonth(date);
-  const maxDate = endOfMonth(date);
-
   return (
     <>
-      <div>calendar 컴포넌트입니다.</div>
       <div>
-        <Calendar locale="en-US" setDate={setDate} date={date} view="month" />
+        <Calendar
+          locale="en-US"
+          setDate={setDate}
+          date={date}
+          view="month"
+          tileClassName={({ date, view }) => {
+            if (marks.find((x) => x === moment(date).format("DD-MM-YYYY"))) {
+              return "highlight";
+            }
+          }}
+        />
       </div>
     </>
   );
