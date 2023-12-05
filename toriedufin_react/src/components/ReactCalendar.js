@@ -1,18 +1,27 @@
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 
 const marks = [
-  "15-12-2023",
-  "03-12-2023",
-  "07-12-2023",
-  "12-12-2023",
-  "13-12-2023",
-  "15-12-2023",
+  "2023-12-05",
+  "2023-12-06",
+  "2023-12-7",
+  "2023-12-12",
+  "2023-12-13",
+  "2023-12-14",
+  "2023-12-15",
+  "2023-12-16",
+  "2023-12-17",
+  "2023-12-19",
+  "2023-12-20",
 ];
 
 function ReactCalendar() {
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
+
+  useEffect(() => {
+    console.log(moment(date).format("YYYY-MM-DD"));
+  }, []);
 
   return (
     <>
@@ -22,10 +31,11 @@ function ReactCalendar() {
           setDate={setDate}
           date={date}
           view="month"
-          tileClassName={({ date, view }) => {
-            if (marks.find((x) => x === moment(date).format("DD-MM-YYYY"))) {
-              return "highlight";
-            }
+          prev2Label={null}
+          next2Label={null}
+          tileContent={({ date }) => {
+            const isMarked = marks.includes(moment(date).format("YYYY-MM-DD"));
+            return isMarked && <div className="dot"></div>;
           }}
         />
       </div>
