@@ -2,14 +2,17 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-const DATA_COUNT = 12;
+const DATA_COUNT = 6;
+
 const labels = [];
 for (let i = 0; i < DATA_COUNT; ++i) {
   labels.push(i.toString());
 }
+
 const datapoints = [
-  100, 120, 60, 70, 60, 120, 200, 180, 120, 125, 105, 110, 170,
+  400, 500, 320, 450, 200, 430, 120, 200, 
 ];
+
 const data = {
   labels: labels,
   datasets: [
@@ -17,19 +20,22 @@ const data = {
       label: "Cubic interpolation",
       data: datapoints,
       // borderColor: Utils.CHART_COLORS.blue,
-      fill: false,
+      borderColor: '#ff4500',
+      fill: true,
       tension: 0.4,
     },
     {
       label: "Linear interpolation (default)",
       data: datapoints,
+      borderDash: [5, 5],
       // borderColor: Utils.CHART_COLORS.green,
+      borderColor: '#808080',
       fill: false,
     },
   ],
 };
 
-function ReactGraph() {
+function ReactChart() {
   return (
     <div>
       <Line type="line" data={data} />
@@ -37,4 +43,4 @@ function ReactGraph() {
   );
 }
 
-export default ReactGraph;
+export default ReactChart;
