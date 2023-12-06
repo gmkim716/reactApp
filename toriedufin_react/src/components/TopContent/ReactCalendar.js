@@ -19,10 +19,6 @@ const marks = [
 function ReactCalendar() {
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
 
-  useEffect(() => {
-    console.log(moment(date).format("YYYY-MM-DD"));
-  }, []);
-
   return (
     <>
       <div>

@@ -159,3 +159,29 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.value {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.border {
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  height: 50px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.box {
+  display: flex;
+}
+
+.container {
+  /* justify-content: space-between; */
+  justify-items: stretch;
+}
