@@ -1,6 +1,12 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import { Grid } from "@mui/material";
+
+const chartStyles = {
+  minHeight: "1000px",
+  // maxHeight: "1000px",
+};
 
 const DATA_COUNT = 6;
 
@@ -42,11 +48,15 @@ const data = {
   ],
 };
 
+const options = {
+  maintainAspectRatio: false,
+};
+
 function ReactChart() {
   return (
-    <div>
-      <Line type="line" data={data} />
-    </div>
+    <Grid xs={{ ...chartStyles }}>
+      <Line type="line" data={data} options={options} />
+    </Grid>
   );
 }
 

@@ -31,6 +31,7 @@ function Details() {
         display: "grid",
         gap: 2,
         gridTemplateColumns: "repeat(2, 1fr)",
+        backgroundColor: "pink",
       }}
     >
       <Item>

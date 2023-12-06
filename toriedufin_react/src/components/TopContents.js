@@ -4,17 +4,18 @@ import Attendance from "./TopContent/Attendance";
 import Summary from "./TopContent/Summary";
 
 const topContentsStyles = {
-  height: "500px",
+  backgroundColor: "yellow",
+  ustifyContent: "space-between",
 };
 
 function TopContents() {
   return (
     <Box sx={{ ...topContentsStyles }}>
-      <Grid container xs={12}>
-        <Grid xs={8}>
+      <Grid container>
+        <Grid item xs={8}>
           <Summary />
         </Grid>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Attendance />
         </Grid>
       </Grid>

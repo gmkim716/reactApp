@@ -3,7 +3,9 @@ import { Box } from "@mui/material";
 import ReactCalendar from "./ReactCalendar";
 import AttendanceCnt from "./AttendanceCnt";
 
-const AttendanceStyles = {};
+const AttendanceStyles = {
+  backgroundColor: "green",
+};
 
 function Attendance() {
   return (
