@@ -1,18 +1,23 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import ReactCalendar from "./ReactCalendar";
 import AttendanceCnt from "./AttendanceCnt";
 
 const AttendanceStyles = {
-  backgroundColor: "green",
+  backgroundColor: "beige",
+  marginRight: '10px',
 };
 
 function Attendance() {
   return (
-    <Box container sx={{ ...AttendanceStyles }}>
-      <ReactCalendar />
-      <AttendanceCnt />
-    </Box>
+    <Grid container sx={{ ...AttendanceStyles }}>
+      <Grid item xs={12}>
+        <ReactCalendar />
+      </Grid>
+      <Grid item xs={12}>
+        <AttendanceCnt />
+      </Grid>
+    </Grid>
   );
 }
 

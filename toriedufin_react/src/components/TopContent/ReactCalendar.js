@@ -1,6 +1,11 @@
+import { Grid } from "@mui/material";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
+
+const calendarStyle = {
+  paddingRight: '8px', 
+}
 
 const marks = [
   "2023-12-05",
@@ -20,8 +25,8 @@ function ReactCalendar() {
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
 
   return (
-    <>
-      <div>
+    <Grid container sx={{ ...calendarStyle }}>
+      <Grid item>
         <Calendar
           locale="en-US"
           setDate={setDate}
@@ -34,8 +39,8 @@ function ReactCalendar() {
             return isMarked && <div className="dot"></div>;
           }}
         />
-      </div>
-    </>
+      </Grid>
+    </Grid>
   );
 }
 

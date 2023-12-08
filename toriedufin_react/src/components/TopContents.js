@@ -3,23 +3,35 @@ import React from "react";
 import Attendance from "./TopContent/Attendance";
 import Summary from "./TopContent/Summary";
 
-const topContentsStyles = {
+const topContentStyles = {
   backgroundColor: "yellow",
-  ustifyContent: "space-between",
+  justifyContent: "space-between",
+  display: 'flex',
 };
+
+const summaryStyles = {
+  paddingRight: '8px',
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'column',
+  backgroundColor: 'red',
+}
+
+const attendanceStyles = {
+  paddingLeft: '8px',  
+  height: '100%',
+}
 
 function TopContents() {
   return (
-    <Box sx={{ ...topContentsStyles }}>
-      <Grid container>
-        <Grid item xs={8}>
-          <Summary />
-        </Grid>
-        <Grid item xs={4}>
-          <Attendance />
-        </Grid>
+    <Grid container sx={{ ...topContentStyles }}>
+      <Grid item xs={8} sx={{ ...summaryStyles }}>
+        <Summary />
       </Grid>
-    </Box>
+      <Grid item xs={4} sx={{ ...attendanceStyles }}>
+        <Attendance />
+      </Grid>
+    </Grid>
   );
 }
 

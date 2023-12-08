@@ -1,6 +1,16 @@
 import { Box, Grid, ListItem } from "@mui/material";
 import React from "react";
 
+
+const detailStyles = {
+  height: '100%',
+  backgroundColor: 'pink',
+  display: "grid",
+  gap: 2,
+  gridTemplateColumns: "repeat(2, 1fr)",
+  marginTop: '16px',
+}
+
 function Item(props) {
   const { sx, ...other } = props;
   return (
@@ -26,13 +36,7 @@ function Item(props) {
 
 function Details() {
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gap: 2,
-        gridTemplateColumns: "repeat(2, 1fr)",
-        backgroundColor: "pink",
-      }}
+    <Grid sx={{ ...detailStyles }}
     >
       <Item>
         <Grid
@@ -82,7 +86,7 @@ function Details() {
           <div className="value">000,000</div>
         </Grid>
       </Item>
-    </Box>
+    </Grid>
   );
 }
 

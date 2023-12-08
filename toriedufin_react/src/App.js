@@ -8,24 +8,30 @@ import Header from "./components/Header";
 import BottomContents from "./components/BottomContents";
 
 const appStyles = {
-  marginTop: "50px",
-  display: "flex",
-  justifyContent: "center",
+  backgroundColor: 'black',
+  display: 'flex',
+  justifyContent: 'center'
 };
 
-const contentStyles = {
-  width: "1600px",
-};
+const contentStyle = {
+  backgroundColor: 'gray',
+}
 
 function App() {
   return (
-    <Grid container xs={12} style={{ ...appStyles }}>
-      <Grid xs={8}>
-        <Box>
-          <Header />
-          <TopContents />
-          <BottomContents />
-        </Box>
+    <Grid container sx={{ ...appStyles }}>
+      <Grid item xs={8} sx={{ ...contentStyle }}>
+        <Grid container>
+          <Grid item xs={12}>
+            <Header />
+          </Grid>
+          <Grid item xs={12}>
+            <TopContents />
+          </Grid>
+          <Grid item xs={12}>
+            <BottomContents />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

@@ -3,16 +3,23 @@ import From from "./From";
 import Details from "./Details";
 import { Box, Grid, ListItem } from "@mui/material";
 
+const summaryStyles = {
+  display: 'flex',
+  backgroundColor: 'beige',
+  height: '100%',
+  justifyContent: 'space-between',
+}
+
 function Summary() {
   return (
-    <Box>
-      <Grid container>
-        <Grid xs={12}>
-          <From />
-          <Details />
-        </Grid>
+    <Grid container sx={{ ...summaryStyles }}>
+      <Grid item xs={12}>
+        <From />
       </Grid>
-    </Box>
+      <Grid item xs={12}>
+        <Details />
+      </Grid>
+    </Grid>
   );
 }
 
