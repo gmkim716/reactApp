@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from "react";
 
-// 액션을 | 으로 연달아서 설정할 수 있다
+// 액션 타입 정의, '|'으로 연달아서 설정할 수 있다
 type Action = { type: "INCREASE" } | { type: "DECREASE" };
 
 function reducer(state: number, action: Action): number {
