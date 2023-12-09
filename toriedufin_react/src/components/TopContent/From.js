@@ -1,8 +1,9 @@
-import { Box, Grid, List, ListItem } from "@mui/material";
-import React from "react";
+import { Grid, List, ListItem } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import moment from "moment";
 
 import img01 from "../../imgs/img01.png";
-import { fontGrid } from "@mui/material/styles/cssUtils";
+import { useSelector } from "react-redux";
 
 const summaryStyle = {
   backgroundColor: "#3565F2",
@@ -28,16 +29,33 @@ const imgGridStyles = {
 };
 
 function Together() {
+  const userInfo = useSelector((user) => user);
+
+  const [enrolled, setEnrolled] = useState();
+  const [along, setAlong] = useState();
+
+  useEffect(() => {
+    if (userInfo) {
+      const enrolledDate = userInfo.enrolled;
+
+      const now = moment();
+      const daysDiff = now.diff(enrolledDate, "days");
+
+      setEnrolled(userInfo.enrolled);
+      setAlong(daysDiff);
+    }
+  }, [userInfo]);
+
   return (
     <Grid container sx={{ ...summaryStyle }}>
       <Grid item xs={4} sx={{ ...listGridStyles }}>
         <List>
           <ListItem className="descriptor">토리에듀핀과 함께</ListItem>
           <ListItem className="totalDays" sx={{ fontSize: "x-large" }}>
-            총 00일
+            총 {along}일
           </ListItem>
           <ListItem className="from" sx={{ fontSize: "small" }}>
-            가입 2023.12.06
+            가입 {enrolled}
           </ListItem>
         </List>
       </Grid>

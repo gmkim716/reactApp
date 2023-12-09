@@ -1,5 +1,6 @@
 import { Box, Grid, ListItem } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const detailStyles = {
   backgroundColor: "red",
@@ -42,13 +43,21 @@ const itemDetailStyles = {
 };
 
 function Details() {
+  const userInfo = useSelector((user) => user);
+
+  const [accuracy, setAccuracy] = useState();
+
+  useEffect(() => {
+    setAccuracy(userInfo.correct / userInfo.attempted);
+  }, []);
+
   return (
     <Grid sx={{ ...detailStyles }}>
       <Item>
         <Grid sx={{ ...itemDetailStyles }}>
           <Grid item>금융지능순위</Grid>
           <Grid item className="value">
-            00위
+            {userInfo.rank}위
           </Grid>
         </Grid>
       </Item>
@@ -56,7 +65,7 @@ function Details() {
         <Grid sx={{ ...itemDetailStyles }}>
           <Grid item>정답률</Grid>
           <Grid item className="value">
-            00위
+            {accuracy.toFixed(3) * 100}%
           </Grid>
         </Grid>
       </Item>
@@ -64,7 +73,7 @@ function Details() {
         <Grid sx={{ ...itemDetailStyles }}>
           <Grid item>학습량</Grid>
           <Grid item className="value">
-            00%
+            {userInfo?.attempted} 문제
           </Grid>
         </Grid>
       </Item>
@@ -72,7 +81,7 @@ function Details() {
         <Grid sx={{ ...itemDetailStyles }}>
           <Grid item>총 학습 Gold</Grid>
           <Grid item className="value">
-            000,000
+            {userInfo.gold.toLocaleString()}
           </Grid>
         </Grid>
       </Item>

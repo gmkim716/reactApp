@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect } from "react";
 import "react-calendar/dist/Calendar.css";
 import "./styles.css";
 import TopContents from "./components/TopContents";
@@ -6,19 +6,6 @@ import { Button, Grid } from "@mui/material";
 import Header from "./components/Header";
 import BottomContents from "./components/BottomContents";
 import { useDispatch, useSelector } from "react-redux";
-import reducer from "../src/store/store";
-
-// 테스트 유저 정보
-const initialUserState = {
-  userId: "",
-  password: "",
-  nickname: "",
-  enrolled: "",
-  rank: -1,
-  attempted: 0,
-  correct: 0,
-  gold: 0,
-};
 
 // 스타일 설정
 const appStyles = {
@@ -27,19 +14,26 @@ const appStyles = {
   justifyContent: "center",
 };
 
-const contentStyle = {
-  // backgroundColor: "gray",
-};
+const contentStyle = {};
 
 function App() {
   // 정의부 ====
-  const user = useSelector((state) => state);
+  const user = useSelector((user) => user);
   const dispatch = useDispatch();
 
   const loginTest = () => {
     dispatch({
       type: "login",
-      payload: { userId: "toriedu", password: "1234" },
+      payload: {
+        userId: "toriedu",
+        password: "1234",
+        nickname: "토리",
+        rank: "2",
+        attempted: 625,
+        correct: 599,
+        gold: 124000,
+        enrolled: "2023.12.06",
+      },
     });
   };
 
@@ -58,10 +52,22 @@ function App() {
     <Grid container sx={{ ...appStyles }}>
       <Grid item xs={8} sx={{ ...contentStyle }}>
         <Grid container>
-          <Grid item xs={12} sx={{ backgroundColor: "skyblue" }}>
-            <Button onClick={loginTest}>로그인 테스트</Button>
-            <Button onClick={logoutTest}>로그아웃 테스트</Button>
-            <Header />
+          <Grid container>
+            <Grid Grid item xs={8} sx={{ backgroundColor: "skyblue" }}>
+              <Header />
+            </Grid>
+            <Grid
+              item
+              xs={4}
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                backgroundColor: "yellowGreen",
+              }}
+            >
+              <Button onClick={loginTest}>로그인 테스트</Button>
+              <Button onClick={logoutTest}>로그아웃 테스트</Button>
+            </Grid>
           </Grid>
           <Grid item xs={12} sx={{ backgroundColor: "orange" }}>
             <TopContents />
