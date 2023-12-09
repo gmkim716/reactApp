@@ -1,9 +1,13 @@
 import { Grid } from "@mui/material";
 import React from "react";
 
+const attendanceContainerStyle = {
+  backgroundColor: "green",
+  height: "80px",
+  borderRadius: "8px",
+};
+
 const attendanceCntStyle = {
-  marginTop: "20px",
-  marginBottom: "20px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -11,7 +15,7 @@ const attendanceCntStyle = {
 
 function AttendanceCnt() {
   return (
-    <Grid container>
+    <Grid container sx={{ ...attendanceContainerStyle }}>
       <Grid item xs={12} sx={{ ...attendanceCntStyle }}>
         0월 출석 &nbsp;
         <b>총 0일</b>

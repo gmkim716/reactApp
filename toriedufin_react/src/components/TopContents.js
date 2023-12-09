@@ -4,9 +4,8 @@ import Attendance from "./TopContent/Attendance";
 import Summary from "./TopContent/Summary";
 
 const topContentStyles = {
-  backgroundColor: "green",
+  backgroundColor: "pink",
   display: "flex",
-  // justifyContent: "space-between",
 };
 
 const summaryStyles = {
@@ -14,13 +13,10 @@ const summaryStyles = {
   display: "flex",
   justifyContent: "space-between",
   flexDirection: "column",
-  backgroundColor: "red",
+  backgroundColor: "yellow",
 };
 
-const attendanceStyles = {
-  // height: "100%",
-  flex: "1",
-};
+const attendanceStyles = {};
 
 function TopContents() {
   return (

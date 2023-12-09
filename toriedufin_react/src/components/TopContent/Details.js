@@ -2,7 +2,7 @@ import { Box, Grid, ListItem } from "@mui/material";
 import React from "react";
 
 const detailStyles = {
-  backgroundColor: "pink",
+  backgroundColor: "red",
   display: "grid",
   gap: 2,
   gridTemplateColumns: "repeat(2, 1fr)",

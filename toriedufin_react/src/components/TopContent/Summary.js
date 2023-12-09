@@ -5,13 +5,14 @@ import { Box, Grid, ListItem } from "@mui/material";
 
 const summaryStyles = {
   display: "flex",
-  backgroundColor: "black",
+  backgroundColor: "silver",
   height: "100%",
   justifyContent: "space-between",
 };
 
-const fromStyles = {
-  height: "50%",
+const fromStyles = {};
+const detailsStyles = {
+  height: "30%",
 };
 
 function Summary() {
@@ -20,7 +21,7 @@ function Summary() {
       <Grid item xs={12} sx={{ ...fromStyles }}>
         <From />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} sx={{ ...detailsStyles }}>
         <Details />
       </Grid>
     </Grid>
