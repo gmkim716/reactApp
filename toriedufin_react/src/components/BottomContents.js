@@ -10,7 +10,7 @@ function BottomContents() {
       <Grid xs={12} sx={{ backgroundColor: "gray" }}>
         <ChartHeader />
       </Grid>
-      <Grid xs={12} sx={{ backgroundColor: "red" }}>
+      <Grid xs={12} sx={{ backgroundColor: "pink" }}>
         <ReactChart />
       </Grid>
       <Grid xs={12} sx={{ backgroundColor: "green" }}>

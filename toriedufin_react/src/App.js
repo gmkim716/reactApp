@@ -7,6 +7,17 @@ import { Box, Grid } from "@mui/material";
 import Header from "./components/Header";
 import BottomContents from "./components/BottomContents";
 
+// 테스트 유저 정보
+const adminUser = {
+  enrolled: "2023-12-06",
+  nickname: "토리",
+  rank: 2,
+  solved: 625,
+  correct: 601,
+  gold: 123456,
+};
+
+// 스타일 설정
 const appStyles = {
   backgroundColor: "black",
   display: "flex",

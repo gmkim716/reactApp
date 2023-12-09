@@ -9,6 +9,12 @@ const headerStyle = {
   marginTop: "50px",
   paddingLeft: "4px",
   paddingRight: "4px",
+  fontWeight: "500",
+};
+
+const tierStyles = {
+  backgroundColor: "red",
+  alignItems: "center",
 };
 
 function Header() {
@@ -18,13 +24,10 @@ function Header() {
 
   return (
     <Grid container xs={12} sx={{ ...headerStyle }}>
-      <Box>
-        <Grid>
-          <img src={img03} alt="img01" height={"50px"} />
-          {tier}
-        </Grid>
-        <Grid>반갑습니다 {user}님</Grid>
-      </Box>
+      <Grid container sx={{ ...tierStyles }}>
+        <img src={img03} alt="img01" height={"30px"} /> {tier}
+      </Grid>
+      <Grid container>반갑습니다 {user}님</Grid>
     </Grid>
   );
 }

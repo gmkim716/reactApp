@@ -50,6 +50,19 @@ const data = {
 
 const options = {
   maintainAspectRatio: false,
+  scales: {
+    x: {
+      display: false,
+    },
+    y: {
+      display: false,
+    },
+  },
+  plugins: {
+    legend: {
+      display: false, // 레이블 숨김 처리
+    },
+  },
 };
 
 function ReactChart() {
