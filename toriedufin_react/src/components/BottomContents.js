@@ -6,11 +6,17 @@ import ChartHeader from "./BottomConent/ChartHeader";
 
 function BottomContents() {
   return (
-    <Box container>
-      <ChartHeader />
-      <ReactChart />
-      <Results />
-    </Box>
+    <Grid container>
+      <Grid xs={12} sx={{ backgroundColor: "gray" }}>
+        <ChartHeader />
+      </Grid>
+      <Grid xs={12} sx={{ backgroundColor: "red" }}>
+        <ReactChart />
+      </Grid>
+      <Grid xs={12} sx={{ backgroundColor: "green" }}>
+        <Results />
+      </Grid>
+    </Grid>
   );
 }
 

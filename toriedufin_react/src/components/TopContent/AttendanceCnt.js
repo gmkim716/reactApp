@@ -1,11 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-
-const attendanceContainerStyle = {
-  backgroundColor: "green",
-  height: "80px",
-  borderRadius: "8px",
-};
+import { attendanceContainerStyle } from "./attendanceContainerStyle";
 
 const attendanceCntStyle = {
   display: "flex",

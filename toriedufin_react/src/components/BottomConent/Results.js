@@ -24,6 +24,16 @@ function Item(props) {
     />
   );
 }
+
+const itemDetailStyles = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  height: "64px",
+  paddingLeft: "20px",
+  paddingRight: "20px",
+};
+
 function Results() {
   return (
     <Box
@@ -33,37 +43,19 @@ function Results() {
       }}
     >
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>이달 수익률</div>
           <div className="value">0%</div>
         </Grid>
       </Item>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>누적 수익률</div>
           <div className="value">00%</div>
         </Grid>
       </Item>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>손익금액</div>
           <div className="value">000,000</div>
         </Grid>

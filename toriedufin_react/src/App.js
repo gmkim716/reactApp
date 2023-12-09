@@ -14,7 +14,7 @@ const appStyles = {
 };
 
 const contentStyle = {
-  backgroundColor: "gray",
+  // backgroundColor: "gray",
 };
 
 function App() {
@@ -22,13 +22,13 @@ function App() {
     <Grid container sx={{ ...appStyles }}>
       <Grid item xs={8} sx={{ ...contentStyle }}>
         <Grid container>
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ backgroundColor: "yellow" }}>
             <Header />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ backgroundColor: "orange" }}>
             <TopContents />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ backgroundColor: "green" }}>
             <BottomContents />
           </Grid>
         </Grid>

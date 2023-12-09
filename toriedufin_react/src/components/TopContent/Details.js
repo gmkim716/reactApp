@@ -33,6 +33,8 @@ function Item(props) {
 }
 
 const itemDetailStyles = {
+  paddingLeft: "20px",
+  paddingRight: "20px",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -44,26 +46,34 @@ function Details() {
     <Grid sx={{ ...detailStyles }}>
       <Item>
         <Grid sx={{ ...itemDetailStyles }}>
-          <div>금융지능순위</div>
-          <div className="value">00위</div>
+          <Grid item>금융지능순위</Grid>
+          <Grid item className="value">
+            00위
+          </Grid>
         </Grid>
       </Item>
       <Item>
         <Grid sx={{ ...itemDetailStyles }}>
-          <div>정답률</div>
-          <div className="value">00위</div>
+          <Grid item>정답률</Grid>
+          <Grid item className="value">
+            00위
+          </Grid>
         </Grid>
       </Item>
       <Item>
         <Grid sx={{ ...itemDetailStyles }}>
-          <div>학습량</div>
-          <div className="value">00%</div>
+          <Grid item>학습량</Grid>
+          <Grid item className="value">
+            00%
+          </Grid>
         </Grid>
       </Item>
       <Item>
         <Grid sx={{ ...itemDetailStyles }}>
-          <div>총 학습 Gold</div>
-          <div className="value">000,000</div>
+          <Grid item>총 학습 Gold</Grid>
+          <Grid item className="value">
+            000,000
+          </Grid>
         </Grid>
       </Item>
     </Grid>

@@ -4,8 +4,7 @@ import Attendance from "./TopContent/Attendance";
 import Summary from "./TopContent/Summary";
 
 const topContentStyles = {
-  backgroundColor: "pink",
-  display: "flex",
+  marginBottom: "32px",
 };
 
 const summaryStyles = {
