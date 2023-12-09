@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 
 const calendarStyle = {
-  paddingRight: '8px', 
-}
+  // paddingRight: '8px',
+};
 
 const marks = [
   "2023-12-05",

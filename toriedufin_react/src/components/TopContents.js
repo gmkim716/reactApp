@@ -4,23 +4,23 @@ import Attendance from "./TopContent/Attendance";
 import Summary from "./TopContent/Summary";
 
 const topContentStyles = {
-  backgroundColor: "yellow",
-  justifyContent: "space-between",
-  display: 'flex',
+  backgroundColor: "green",
+  display: "flex",
+  // justifyContent: "space-between",
 };
 
 const summaryStyles = {
-  paddingRight: '8px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  flexDirection: 'column',
-  backgroundColor: 'red',
-}
+  paddingRight: "16px",
+  display: "flex",
+  justifyContent: "space-between",
+  flexDirection: "column",
+  backgroundColor: "red",
+};
 
 const attendanceStyles = {
-  paddingLeft: '8px',  
-  height: '100%',
-}
+  // height: "100%",
+  flex: "1",
+};
 
 function TopContents() {
   return (

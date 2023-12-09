@@ -6,8 +6,8 @@ const summaryStyle = {
   alignItems: "center",
   color: "white",
   borderRadius: "8px",
-  height: '100%',
-  marginBottom: '8px',
+  height: "100%",
+  marginBottom: "20px",
 };
 
 function Together() {

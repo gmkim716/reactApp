@@ -8,14 +8,14 @@ import Header from "./components/Header";
 import BottomContents from "./components/BottomContents";
 
 const appStyles = {
-  backgroundColor: 'black',
-  display: 'flex',
-  justifyContent: 'center'
+  backgroundColor: "black",
+  display: "flex",
+  justifyContent: "center",
 };
 
 const contentStyle = {
-  backgroundColor: 'gray',
-}
+  backgroundColor: "gray",
+};
 
 function App() {
   return (

@@ -1,15 +1,13 @@
 import { Box, Grid, ListItem } from "@mui/material";
 import React from "react";
 
-
 const detailStyles = {
-  height: '100%',
-  backgroundColor: 'pink',
+  backgroundColor: "pink",
   display: "grid",
   gap: 2,
   gridTemplateColumns: "repeat(2, 1fr)",
-  marginTop: '16px',
-}
+  paddingTop: "16px",
+};
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -34,54 +32,36 @@ function Item(props) {
   );
 }
 
+const itemDetailStyles = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  height: "64px",
+};
+
 function Details() {
   return (
-    <Grid sx={{ ...detailStyles }}
-    >
+    <Grid sx={{ ...detailStyles }}>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>금융지능순위</div>
           <div className="value">00위</div>
         </Grid>
       </Item>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>정답률</div>
           <div className="value">00위</div>
         </Grid>
       </Item>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>학습량</div>
           <div className="value">00%</div>
         </Grid>
       </Item>
       <Item>
-        <Grid
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <Grid sx={{ ...itemDetailStyles }}>
           <div>총 학습 Gold</div>
           <div className="value">000,000</div>
         </Grid>
