@@ -7,17 +7,16 @@ import Header from "./components/Header";
 import BottomContents from "./components/BottomContents";
 import { useDispatch, useSelector } from "react-redux";
 
-// 스타일 설정
 const appStyles = {
-  backgroundColor: "black",
+  backgroundColor: "lightGray",
   display: "flex",
   justifyContent: "center",
+  height: "1020px", // 1440, 1020 기준
 };
 
 const contentStyle = {};
 
 function App() {
-  // 정의부 ====
   const user = useSelector((user) => user);
   const dispatch = useDispatch();
 
@@ -43,7 +42,6 @@ function App() {
     });
   };
 
-  // 유저 정보 확인
   useEffect(() => {
     console.log("user", user);
   }, [user]);
@@ -53,7 +51,7 @@ function App() {
       <Grid item xs={8} sx={{ ...contentStyle }}>
         <Grid container>
           <Grid container>
-            <Grid Grid item xs={8} sx={{ backgroundColor: "skyblue" }}>
+            <Grid item xs={8} sx={{ backgroundColor: "" }}>
               <Header />
             </Grid>
             <Grid
@@ -62,17 +60,16 @@ function App() {
               sx={{
                 display: "flex",
                 justifyContent: "flex-end",
-                backgroundColor: "yellowGreen",
               }}
             >
               <Button onClick={loginTest}>로그인 테스트</Button>
               <Button onClick={logoutTest}>로그아웃 테스트</Button>
             </Grid>
           </Grid>
-          <Grid item xs={12} sx={{ backgroundColor: "orange" }}>
+          <Grid item xs={12}>
             <TopContents />
           </Grid>
-          <Grid item xs={12} sx={{ backgroundColor: "green" }}>
+          <Grid item xs={12}>
             <BottomContents />
           </Grid>
         </Grid>

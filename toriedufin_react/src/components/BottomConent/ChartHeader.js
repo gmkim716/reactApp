@@ -7,12 +7,10 @@ const chartHeaderStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  marginTop: "8px",
-  marginBottom: "8px",
 };
 
 const titleStyles = {
-  backgroundColor: "lightGray",
+  // backgroundColor: "lightGray",
   alignItems: "center",
   fontWeight: "500",
 };

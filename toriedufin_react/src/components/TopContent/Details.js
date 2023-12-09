@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const detailStyles = {
-  backgroundColor: "red",
+  // backgroundColor: "red",
   display: "grid",
   gap: 2,
   gridTemplateColumns: "repeat(2, 1fr)",
@@ -45,7 +45,7 @@ const itemDetailStyles = {
 function Details() {
   const userInfo = useSelector((user) => user);
 
-  const [accuracy, setAccuracy] = useState();
+  const [accuracy, setAccuracy] = useState(-1);
 
   useEffect(() => {
     setAccuracy(userInfo.correct / userInfo.attempted);
@@ -65,7 +65,7 @@ function Details() {
         <Grid sx={{ ...itemDetailStyles }}>
           <Grid item>정답률</Grid>
           <Grid item className="value">
-            {accuracy.toFixed(3) * 100}%
+            {accuracy?.toFixed(3) * 100}%
           </Grid>
         </Grid>
       </Item>

@@ -12,7 +12,8 @@ const summaryStyles = {
   display: "flex",
   justifyContent: "space-between",
   flexDirection: "column",
-  backgroundColor: "yellow",
+  // backgroundColor: "yellow",
+  height: "400px",
 };
 
 const attendanceStyles = {};

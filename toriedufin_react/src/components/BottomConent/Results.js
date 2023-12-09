@@ -1,31 +1,7 @@
-import { Box, Grid, ListItem } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 
-function Item(props) {
-  const { sx, ...other } = props;
-  return (
-    <Box
-      sx={{
-        bgcolor: (theme) =>
-          theme.palette.mode === "dark" ? "#101010" : "#fff",
-        color: (theme) =>
-          theme.palette.mode === "dark" ? "grey.300" : "grey.800",
-        border: "1px solid",
-        borderColor: (theme) =>
-          theme.palette.mode === "dark" ? "grey.800" : "grey.300",
-        p: 1,
-        m: 1,
-        borderRadius: 2,
-        fontSize: "0.875rem",
-        fontWeight: "700",
-        ...sx,
-      }}
-      {...other}
-    />
-  );
-}
-
-const itemDetailStyles = {
+const itemContainerStyles = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -34,33 +10,49 @@ const itemDetailStyles = {
   paddingRight: "20px",
 };
 
+const itemStyles = {
+  backgroundColor: "white",
+  borderRadius: "8px",
+  marginLeft: "8px",
+  marginRight: "8px",
+  flex: 1,
+};
+
 function Results() {
   return (
-    <Box
+    <Grid
+      container
       sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "16px",
       }}
     >
-      <Item>
-        <Grid sx={{ ...itemDetailStyles }}>
-          <div>이달 수익률</div>
-          <div className="value">0%</div>
+      <Grid item sx={{ ...itemStyles, marginLeft: 0 }}>
+        <Grid container sx={{ ...itemContainerStyles }}>
+          <Grid item>이달 수익률</Grid>
+          <Grid item className="value">
+            0%
+          </Grid>
         </Grid>
-      </Item>
-      <Item>
-        <Grid sx={{ ...itemDetailStyles }}>
-          <div>누적 수익률</div>
-          <div className="value">00%</div>
+      </Grid>
+      <Grid item sx={{ ...itemStyles }}>
+        <Grid container sx={{ ...itemContainerStyles }}>
+          <Grid item>누적 수익률</Grid>
+          <Grid item className="value">
+            0%
+          </Grid>
         </Grid>
-      </Item>
-      <Item>
-        <Grid sx={{ ...itemDetailStyles }}>
-          <div>손익금액</div>
-          <div className="value">000,000</div>
+      </Grid>
+      <Grid item sx={{ ...itemStyles, marginRight: 0 }}>
+        <Grid container sx={{ ...itemContainerStyles }}>
+          <Grid item>손익금액</Grid>
+          <Grid item className="value">
+            0%
+          </Grid>
         </Grid>
-      </Item>
-    </Box>
+      </Grid>
+    </Grid>
   );
 }
 

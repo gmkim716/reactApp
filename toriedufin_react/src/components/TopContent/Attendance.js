@@ -4,7 +4,7 @@ import ReactCalendar from "./ReactCalendar";
 import AttendanceCnt from "./AttendanceCnt";
 
 const attendanceBoxStyles = {
-  backgroundColor: "black",
+  // backgroundColor: "red",
 };
 
 const attendanceContentStyles = {
@@ -15,8 +15,9 @@ const attendanceContentStyles = {
 const calendarBoxStyles = {};
 
 const separateLineBoxStyles = {
-  backgroundColor: "blue",
-  margin: "0 auto",
+  // backgroundColor: "blue",
+  height: "1px",
+  width: "100%",
 };
 
 const attendanceCntBoxStyles = {};
@@ -24,14 +25,31 @@ const attendanceCntBoxStyles = {};
 function Attendance() {
   return (
     <Grid container sx={{ ...attendanceBoxStyles }}>
-      <Box sx={{}}>
-        <Grid item xs={12} sx={{ ...calendarBoxStyles }}>
+      <Box
+        container
+        sx={{
+          height: "400px",
+          backgroundColor: "white",
+          borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Grid item xs={11} sx={{ ...calendarBoxStyles }}>
           <ReactCalendar />
         </Grid>
-        <Grid item xs={11} sx={{ ...separateLineBoxStyles }}>
-          <hr />
+        <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+          <Grid item xs={10}>
+            <hr />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sx={{ ...attendanceCntBoxStyles }}>
+        <Grid
+          container
+          xs={6}
+          sx={{ ...attendanceCntBoxStyles, backgroundColor: "" }}
+        >
           <AttendanceCnt />
         </Grid>
       </Box>

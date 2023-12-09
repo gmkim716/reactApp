@@ -1,19 +1,21 @@
 import React from "react";
 import ReactChart from "./BottomConent/ReactChart";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Results from "./BottomConent/Results";
 import ChartHeader from "./BottomConent/ChartHeader";
 
+const bottomContentsStyles = {};
+
 function BottomContents() {
   return (
-    <Grid container>
-      <Grid xs={12} sx={{ backgroundColor: "gray" }}>
+    <Grid container sx={{ ...bottomContentsStyles }}>
+      <Grid xs={12} sx={{ backgroundColor: "" }}>
         <ChartHeader />
       </Grid>
-      <Grid xs={12} sx={{ backgroundColor: "pink" }}>
+      <Grid xs={12} sx={{ backgroundColor: "white" }}>
         <ReactChart />
       </Grid>
-      <Grid xs={12} sx={{ backgroundColor: "green" }}>
+      <Grid xs={12} sx={{ backgroundColor: "" }}>
         <Results />
       </Grid>
     </Grid>

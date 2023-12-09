@@ -3,12 +3,14 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 
-const calendarStyle = {};
+const calendarStyle = {
+  position: "relative",
+};
 
 const marks = [
   "2023-12-05",
   "2023-12-06",
-  "2023-12-7",
+  "2023-12-07",
   "2023-12-12",
   "2023-12-13",
   "2023-12-14",
@@ -22,9 +24,19 @@ const marks = [
 function ReactCalendar() {
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
 
+  const tileClassName = ({ date }) => {
+    const dateStr = moment(date).format("YYYY-MM-DD");
+    return marks.includes(dateStr) ? "marked" : "grayed";
+  };
+
+  const tileContent = ({ date, view }) => {
+    const dateStr = moment(date).format("YYYY-MM-DD");
+    return marks.includes(dateStr) ? <div className="marker" /> : null;
+  };
+
   return (
     <Grid container sx={{ ...calendarStyle }}>
-      <Grid item>
+      <Grid item xs={12}>
         <Calendar
           locale="en-US"
           setDate={setDate}
@@ -32,10 +44,8 @@ function ReactCalendar() {
           view="month"
           prev2Label={null}
           next2Label={null}
-          tileContent={({ date }) => {
-            const isMarked = marks.includes(moment(date).format("YYYY-MM-DD"));
-            return isMarked && <div className="dot"></div>;
-          }}
+          tileClassName={tileClassName}
+          tileContent={tileContent}
         />
       </Grid>
     </Grid>

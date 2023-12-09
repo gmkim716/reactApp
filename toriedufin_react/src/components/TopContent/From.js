@@ -11,7 +11,7 @@ const summaryStyle = {
   color: "white",
   borderRadius: "8px",
   height: "100%",
-  marginBottom: "20px",
+  marginBottom: "px",
   position: "relative",
   paddingLeft: "50px",
 };

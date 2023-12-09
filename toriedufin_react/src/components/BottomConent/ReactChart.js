@@ -4,8 +4,8 @@ import { Line } from "react-chartjs-2";
 import { Grid } from "@mui/material";
 
 const chartStyles = {
-  minHeight: "1000px",
-  // maxHeight: "1000px",
+  backgroundColor: "white",
+  height: "200px",
 };
 
 const DATA_COUNT = 6;
@@ -67,7 +67,7 @@ const options = {
 
 function ReactChart() {
   return (
-    <Grid xs={{ ...chartStyles }}>
+    <Grid sx={{ ...chartStyles }}>
       <Line type="line" data={data} options={options} />
     </Grid>
   );

@@ -5,7 +5,7 @@ import { Box, Grid, ListItem } from "@mui/material";
 
 const summaryStyles = {
   display: "flex",
-  backgroundColor: "silver",
+  // backgroundColor: "silver",
   height: "100%",
   justifyContent: "space-between",
 };

@@ -6,15 +6,15 @@ import { useSelector } from "react-redux";
 
 const headerStyles = {
   fontSize: "25px",
-  backgroundColor: "green",
-  marginTop: "50px",
+  // backgroundColor: "green",
+  marginTop: "10px",
   paddingLeft: "4px",
   paddingRight: "4px",
   fontWeight: "500",
 };
 
 const tierStyles = {
-  backgroundColor: "red",
+  // backgroundColor: "red",
   alignItems: "center",
 };
 

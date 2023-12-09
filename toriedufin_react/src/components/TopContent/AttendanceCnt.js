@@ -1,11 +1,16 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import { attendanceContainerStyle } from "./attendanceContainerStyle";
+
+const attendanceContainerStyle = {
+  // backgroundColor: "yellow",
+  height: "100%",
+};
 
 const attendanceCntStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  // backgroundColor: "yellow",
 };
 
 function AttendanceCnt() {
