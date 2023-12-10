@@ -49,7 +49,7 @@ function Details() {
 
   useEffect(() => {
     setAccuracy(userInfo.correct / userInfo.attempted);
-  }, []);
+  }, [userInfo]);
 
   return (
     <Grid sx={{ ...detailStyles }}>

@@ -21,15 +21,9 @@ const tierStyles = {
 function Header() {
   const userInfo = useSelector((user) => user);
 
-  const [user, setUser] = useState();
   const [tier, setTier] = useState();
 
   useEffect(() => {
-    setUser(userInfo);
-  }, []);
-
-  useEffect(() => {
-    setUser(userInfo);
     if (userInfo.rank < 0) {
       setTier("Rank");
     } else if (userInfo.rank <= 10) {
@@ -49,8 +43,8 @@ function Header() {
         )}
       </Grid>
       <Grid container>
-        {user?.nickname
-          ? `반갑습니다 ${user.nickname}님`
+        {userInfo?.nickname
+          ? `반갑습니다 ${userInfo.nickname}님`
           : "로그인이 필요합니다"}
       </Grid>
     </Grid>

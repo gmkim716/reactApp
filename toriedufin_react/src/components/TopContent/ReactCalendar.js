@@ -1,38 +1,34 @@
 import { Grid } from "@mui/material";
+import { current } from "immer";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
+import { useSelector } from "react-redux";
 
 const calendarStyle = {
   position: "relative",
 };
 
-const marks = [
-  "2023-12-05",
-  "2023-12-06",
-  "2023-12-07",
-  "2023-12-12",
-  "2023-12-13",
-  "2023-12-14",
-  "2023-12-15",
-  "2023-12-16",
-  "2023-12-17",
-  "2023-12-19",
-  "2023-12-20",
-];
-
 function ReactCalendar() {
+  const userInfo = useSelector((user) => user);
+
   const [date, setDate] = useState(new Date()); // 초기값 = 현재 날짜
+  const [monthlyMarks, setMonthlyMarks] = useState([]);
+  const [currentMonth, setCurrentMonth] = useState(moment().format("YYYY-MM"));
 
   const tileClassName = ({ date }) => {
     const dateStr = moment(date).format("YYYY-MM-DD");
-    return marks.includes(dateStr) ? "marked" : "grayed";
+    return monthlyMarks.includes(dateStr) ? "marked" : "grayed";
   };
 
   const tileContent = ({ date, view }) => {
     const dateStr = moment(date).format("YYYY-MM-DD");
-    return marks.includes(dateStr) ? <div className="marker" /> : null;
+    return monthlyMarks.includes(dateStr) ? <div className="marker" /> : null;
   };
+
+  useEffect(() => {
+    setMonthlyMarks(userInfo.loginHistory);
+  }, [userInfo.loginHistory]);
 
   return (
     <Grid container sx={{ ...calendarStyle }}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import ReactCalendar from "./ReactCalendar";
 import AttendanceCnt from "./AttendanceCnt";
@@ -23,6 +23,12 @@ const separateLineBoxStyles = {
 const attendanceCntBoxStyles = {};
 
 function Attendance() {
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+
+  useEffect(() => {
+    console.log("month", month);
+  }, [month]);
+
   return (
     <Grid container sx={{ ...attendanceBoxStyles }}>
       <Box
@@ -40,7 +46,14 @@ function Attendance() {
         <Grid item xs={11} sx={{ ...calendarBoxStyles }}>
           <ReactCalendar />
         </Grid>
-        <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+        <Grid
+          container
+          sx={{
+            justifyContent: "center",
+            marginTop: "10px",
+            marginBottom: "0",
+          }}
+        >
           <Grid item xs={10}>
             <hr />
           </Grid>
@@ -50,7 +63,7 @@ function Attendance() {
           xs={6}
           sx={{ ...attendanceCntBoxStyles, backgroundColor: "" }}
         >
-          <AttendanceCnt />
+          <AttendanceCnt month={month} />
         </Grid>
       </Box>
     </Grid>

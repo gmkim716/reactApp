@@ -8,30 +8,46 @@ const initialUserState = {
   nickname: "", // 닉네임
   enrolled: "", // 등록일
   lastLogin: "", // 지난 접속일
+  loginHistory: [], // 접속 날짜 기록
 
   // 이용현황
   rank: -1,
   attempted: 0,
   correct: 0,
   gold: 0,
+  tradeHistory: [],
 };
 
 // 리듀서 함수 정의
 const reducer = (user = initialUserState, action) => {
   switch (action.type) {
     case "login":
-      return {
-        ...user,
-        userId: action.payload.userId,
-        password: action.payload.password,
-        enrolled: action.payload.enrolled,
-        nickname: action.payload.nickname,
-        rank: action.payload.rank,
-        correct: action.payload.correct,
-        attempted: action.payload.attempted,
-        gold: action.payload.gold,
-        lastLogin: new Date().toISOString(),
-      };
+      const time = new Date().toISOString();
+      const today = time.split("T")[0];
+
+      const loginHistory = user.loginHistory;
+      const lastLoginExists = loginHistory.length > 0;
+      const lastLoginMatches =
+        lastLoginExists && loginHistory[loginHistory.length - 1] === today;
+
+      if (!lastLoginExists || !lastLoginMatches) {
+        return {
+          ...user,
+          userId: action.payload.userId,
+          password: action.payload.password,
+          enrolled: action.payload.enrolled,
+          nickname: action.payload.nickname,
+          rank: action.payload.rank,
+          correct: action.payload.correct,
+          attempted: action.payload.attempted,
+          gold: action.payload.gold,
+          lastLogin: time,
+          loginHistory: [...action.payload.loginHistory, today],
+          tradeHistory: [...action.payload.tradeHistory],
+        };
+      } else {
+        return user;
+      }
     case "logout":
       return {
         ...initialUserState,
