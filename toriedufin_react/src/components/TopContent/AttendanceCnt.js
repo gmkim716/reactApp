@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const attendanceContainerStyle = {
-  // backgroundColor: "yellow",
   height: "100%",
 };
 
@@ -11,7 +10,6 @@ const attendanceCntStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  // backgroundColor: "yellow",
 };
 
 function AttendanceCnt({ month }) {

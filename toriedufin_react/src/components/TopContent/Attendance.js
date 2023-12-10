@@ -8,7 +8,7 @@ const attendanceBoxStyles = {
 };
 
 const attendanceContentStyles = {
-  backgroundColor: "beige",
+  // backgroundColor: "beige",
   borderRadius: "8px",
 };
 

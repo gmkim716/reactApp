@@ -22,19 +22,19 @@ const itemStyles = {
 function Results() {
   const userInfo = useSelector((user) => user);
   const [montlyProfitRate, setMontlyProfitRate] = useState();
-  const [cumlativeProfitRate, setCumlativeProfitRate] = useState();
+  const [cumlativeProfitRate, setCumlativeProfitRate] = useState(0);
   const [totalProfit, setTotalProfit] = useState();
 
   const [month, setMonth] = useState(12);
 
-  useEffect(() => {
-    setCumlativeProfitRate(0);
-  }, []);
-
   // 임의로 값 입력
   useEffect(() => {
-    setCumlativeProfitRate(-3);
-  }, [montlyProfitRate]);
+    if (userInfo.userId === "") {
+      setCumlativeProfitRate(0);
+    } else {
+      setCumlativeProfitRate(-3);
+    }
+  }, [totalProfit]);
 
   useEffect(() => {
     let totalProfit = 0;
@@ -72,12 +72,16 @@ function Results() {
       <Grid item sx={{ ...itemStyles, marginLeft: 0 }}>
         <Grid container sx={{ ...itemContainerStyles }}>
           <Grid item>이번 달 수익</Grid>
-          {montlyProfitRate >= 0 ? (
+          {montlyProfitRate > 0 ? (
             <Grid item className="value" sx={{ color: "red" }}>
               {montlyProfitRate?.toLocaleString()}
             </Grid>
-          ) : (
+          ) : montlyProfitRate < 0 ? (
             <Grid item className="value" sx={{ color: "blue" }}>
+              {montlyProfitRate?.toLocaleString()}
+            </Grid>
+          ) : (
+            <Grid item className="value" sx={{ color: "black" }}>
               {montlyProfitRate?.toLocaleString()}
             </Grid>
           )}
@@ -86,12 +90,16 @@ function Results() {
       <Grid item sx={{ ...itemStyles }}>
         <Grid container sx={{ ...itemContainerStyles }}>
           <Grid item>누적 수익률</Grid>
-          {cumlativeProfitRate >= 0 ? (
+          {cumlativeProfitRate > 0 ? (
             <Grid item className="value" sx={{ color: "red" }}>
               {cumlativeProfitRate}%
             </Grid>
-          ) : (
+          ) : cumlativeProfitRate < 0 ? (
             <Grid item className="value" sx={{ color: "blue" }}>
+              {cumlativeProfitRate}%
+            </Grid>
+          ) : (
+            <Grid item className="value" sx={{ color: "black" }}>
               {cumlativeProfitRate}%
             </Grid>
           )}
@@ -100,14 +108,17 @@ function Results() {
       <Grid item sx={{ ...itemStyles, marginRight: 0 }}>
         <Grid container sx={{ ...itemContainerStyles }}>
           <Grid item>손익금액</Grid>
-
-          {totalProfit >= 0 ? (
+          {totalProfit > 0 ? (
             <Grid item className="value" sx={{ color: "red" }}>
               {totalProfit?.toLocaleString()}
             </Grid>
-          ) : (
+          ) : totalProfit < 0 ? (
             <Grid item className="value" sx={{ color: "blue" }}>
               -{totalProfit?.toLocaleString()}
+            </Grid>
+          ) : (
+            <Grid item className="value" sx={{ color: "black" }}>
+              {totalProfit?.toLocaleString()}
             </Grid>
           )}
         </Grid>

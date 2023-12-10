@@ -6,6 +6,7 @@ import { Grid } from "@mui/material";
 const chartStyles = {
   backgroundColor: "white",
   height: "250px",
+  borderRadius: "16px",
 };
 
 // 임의로 임력한 값
@@ -78,6 +79,7 @@ const options = {
       display: false,
     },
   },
+  borderRadius: 16,
   layout: {
     padding: 0,
     margin: 0,
@@ -86,8 +88,10 @@ const options = {
 
 function ReactChart() {
   return (
-    <Grid sx={{ ...chartStyles }}>
-      <Line type="line" data={data} options={options} />
+    <Grid container sx={{ ...chartStyles }}>
+      <Grid item xs={12}>
+        <Line type="line" data={data} options={options} />
+      </Grid>
     </Grid>
   );
 }

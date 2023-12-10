@@ -12,9 +12,9 @@ const initialUserState = {
 
   // 이용현황
   rank: -1,
-  attempted: 0,
+  attempted: -1,
   correct: 0,
-  gold: 0,
+  gold: -1,
   tradeHistory: [],
 };
 

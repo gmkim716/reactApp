@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const appStyles = {
   marginTop: "25px",
-  backgroundColor: "lightGray",
+  // backgroundColor: "lightGray",
   display: "flex",
   justifyContent: "center",
   height: "1020px", // 1440, 1020 기준

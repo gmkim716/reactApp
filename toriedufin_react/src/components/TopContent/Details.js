@@ -45,7 +45,7 @@ const itemDetailStyles = {
 function Details() {
   const userInfo = useSelector((user) => user);
 
-  const [accuracy, setAccuracy] = useState(-1);
+  const [accuracy, setAccuracy] = useState();
 
   useEffect(() => {
     setAccuracy(userInfo.correct / userInfo.attempted);
